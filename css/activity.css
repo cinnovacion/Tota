@@ -11,7 +11,7 @@
 #canvas {
 	width: 1200px;
 	height: 900px;
-	background-image: url(../img/fondo.svg);
+	background-image: url(../img/fondo.png);
 	background-repeat: no-repeat;
 	text-align: center;
 }
