@@ -5,5 +5,24 @@
 
 #canvas p {
   margin-top: 25%;
-  text-align: center;
+  color: white;
+}
+
+#canvas {
+	width: 1200px;
+	height: 900px;
+	background-image: url(../img/fondo.svg);
+	background-repeat: no-repeat;
+	text-align: center;
+}
+
+#front {
+	z-index: 999;
+	position: absolute;
+    left: 300px;
+    top: 280px;
+    width: 600px;
+    height: 450px;
+    background-color: black;
+    opacity: 0.75;
 }
