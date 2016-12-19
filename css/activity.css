@@ -10,7 +10,7 @@
 
 #canvas {
 	width: 1200px;
-	height: 900px;
+	height: 845px;
 	background-image: url(../img/fondo.png);
 	background-repeat: no-repeat;
 	text-align: center;
@@ -20,9 +20,9 @@
 	z-index: 999;
 	position: absolute;
     left: 300px;
-    top: 280px;
+    top: 210px;
     width: 600px;
-    height: 450px;
+    height: 420px;
     background-color: black;
     opacity: 0.75;
 }
