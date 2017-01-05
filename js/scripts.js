@@ -2,7 +2,7 @@ var matrixA = null;
 var gameA = null;
 
 $(function(){
-	matrixA = matrixAcelerando();
+	matrixA = matrixAcelerando(2);
 	init();
 });
 
