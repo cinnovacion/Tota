@@ -1,5 +1,5 @@
 [Activity]
-name = TestTemplate
+name = Tota La Tortuga
 bundle_id = org.sugarlabs.TestTemplate
 icon = activity-helloworld
 exec = sugar-activity-web
