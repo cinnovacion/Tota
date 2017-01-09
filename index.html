@@ -18,14 +18,29 @@
     </div>
 
     <div id="canvas">
-      <div id="container_matrix"></div>
 
-    <div id="no-drop" class="draggable drag-drop"> #no-drop </div>
-    <div id="yes-drop" class="draggable drag-drop"> #yes-drop </div>
+      <div id='opening'>
+        <div><button id='play'>Entrar</button></div>
+      </div>
 
-    <div id="outer-dropzone" class="dropzone">
-      #outer-dropzone
-      <div id="inner-dropzone" class="dropzone">#inner-dropzone</div>
+      <div id='menu' class="hidden">
+        <div><button id='acelerando-button'>Acelerando</button><button id='atiempo-button'>A tiempo</button></div>
+      </div>
+
+      <div id='acelerando' class="hidden">
+        <div id="container_matrix"></div>
+      </div>
+
+      <div id='atiempo' class="hidden">
+        <div id="no-drop" class="draggable drag-drop"> #no-drop </div>
+        <div id="yes-drop" class="draggable drag-drop"> #yes-drop </div>
+
+        <div id="outer-dropzone" class="dropzone">
+          #outer-dropzone
+          <div id="inner-dropzone" class="dropzone">#inner-dropzone</div>
+        </div>        
+      </div>
+
     </div>
 
     <!--<div id="front"></div>-->

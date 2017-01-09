@@ -3,16 +3,10 @@
   background-image: url(../activity/activity-helloworld.svg);
 }
 
-#canvas p {
-  margin-top: 25%;
-  color: white;
-}
-
 #canvas {
-	/*width: 1200px;
-	height: 845px;*/
-	background-image: url(../img/fondo.png);
-	background-repeat: no-repeat;
+	width: 1200px;
+	height: 845px;
+	background-color: #77f442;
 	text-align: center;
 }
 
@@ -29,10 +23,9 @@
 
 #container_matrix{
   vertical-align: center;
-  margin-left: 10%;
   width: 80%;
-  margin-top: 10%;
   height: 80%;
+  margin: auto;
   background-color: black;
   opacity: 0.7;
 }
@@ -74,6 +67,10 @@ input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.hidden {
+  display: none;
 }
 
 /*************************************/
@@ -123,4 +120,44 @@ input::-webkit-inner-spin-button {
 .drag-drop.can-drop {
   color: #000;
   background-color: #4e4;
+}
+
+/******************************************/
+
+#opening {
+  width: 1200px;
+  height: 845px;
+  background-image: url(../img/opening.png);
+}
+#opening div {
+  width: 20%;
+  height: 20%;
+  background-color: white;
+  opacity: 0.75;
+  margin: auto;
+}
+
+#menu {
+  width: 1200px;
+  height: 845px;
+  background-image: url(../img/menu.png);
+}
+#menu div {
+  width: 20%;
+  height: 20%;
+  background-color: white;
+  opacity: 0.75;
+  margin: auto;
+}
+
+#acelerando {
+  width: 1200px;
+  height: 845px;
+  background-image: url(../img/acelerando.png);
+}
+
+#atiempo {
+  width: 1200px;
+  height: 845px;
+  background-image: url(../img/atiempo.png);
 }

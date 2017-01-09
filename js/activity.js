@@ -76,9 +76,28 @@ define(function (require) {
     require(['domReady!'], function (doc) {
         activity.setup();
 
+        $('#play').on('click', function(){
+          $('#opening').toggle();
+          $('#menu').toggle();
+        });
+
+        $('#acelerando-button').on('click', function(){
+          $('#menu').toggle();
+          $('#acelerando').toggle();
+        });
+
+        $('#atiempo-button').on('click', function(){
+          $('#menu').toggle();
+          $('#atiempo').toggle();
+        });
+
+
+        //acelerando
         matrixA = matrixAcelerando(3);
         init();
 
+
+        //a tiempo
         interact('.dropzone').dropzone({
           // only accept elements matching this CSS selector
           accept: '#yes-drop',
@@ -115,8 +134,6 @@ define(function (require) {
             event.target.classList.remove('drop-target');
           }
         });
-
-        // target elements with the "draggable" class
         interact('.draggable')
           .draggable({
             // enable inertial throwing
@@ -158,9 +175,9 @@ define(function (require) {
             target.setAttribute('data-x', x);
             target.setAttribute('data-y', y);
           }
-
-        // this is used later in the resizing and gesture demos
         window.dragMoveListener = dragMoveListener;
+
+
     });
 
 });
