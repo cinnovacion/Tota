@@ -7,7 +7,7 @@
 	width: 1200px;
 	height: 845px;
 	background-color: #77f442;
-	text-align: center;
+	/*text-align: center;*/
 }
 
 #front {
@@ -135,6 +135,7 @@ input::-webkit-inner-spin-button {
   background-color: white;
   opacity: 0.75;
   margin: auto;
+  text-align: center;
 }
 
 #menu {
@@ -160,4 +161,8 @@ input::-webkit-inner-spin-button {
   width: 1200px;
   height: 845px;
   background-image: url(../img/atiempo.png);
+}
+
+.game-button {
+
 }
