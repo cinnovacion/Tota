@@ -91,6 +91,11 @@ define(function (require) {
           $('#atiempo').toggle();
         });
 
+        $('#back-opening').on('click', function(){
+          $('#menu').toggle();
+          $('#opening').toggle();
+        });
+
 
         //acelerando
         matrixA = matrixAcelerando(3);
