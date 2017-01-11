@@ -7,6 +7,9 @@ define(function (require) {
     var interact = require("interact");
     var acelerando = require("../js/acelerando.js");
 
+    var healthA = null;
+    var hitsA = null;
+    var levelA = null;
     var matrixA = null;
     var gameA = null;
 
@@ -21,26 +24,36 @@ define(function (require) {
         }
     });
 
-    function init(){
+    function initA(){
+      healthA = 3;
+      $('#container-statusA-health').empty();
+      for (var i = 1; i <= healthA; i++) {
+         $('#container-statusA-health').append('<button id="h'+i+'-A" class="game-button">'+i+'</button>');
+      }
+      hitsA = 0;
+      $('#contA-game').html(hitsA);
+      levelA = 1;
+      matrixA = matrixAcelerando(levelA);
+      game();
+    }
+
+    function game(){
       //console.log(matrixA);
       var pos = Math.floor(Math.random()*matrixA.length);
       gameA = matrixA[pos];
       matrixA.splice(pos, 1);
-      game(gameA);
-    }
-
-    function game(matrix){
-      //console.log(matrix);
+      //console.log(gameA);
+      $('#container_matrix').empty();
       var row = 1;
       var inputs = 0;
       for (var i = 1; i <= 5; i++) {
         $('#container_matrix').append('<div class="row" id="R'+row+'"></div>');
         for (var j = 1; j <=row; j++) {
-          if (matrix.inputs[inputs] == 0) {
+          if (gameA.inputs[inputs] == 0) {
             $('#R'+row).append('<input type="number" class="input_row" id="C'+(inputs+1)+'" >');
             inputs++;
           }else{
-            $('#R'+row).append('<div class="input_row_false" id="C'+(inputs+1)+'">'+matrix.matrix[inputs]+'</div>');
+            $('#R'+row).append('<div class="input_row_false" id="C'+(inputs+1)+'">'+gameA.matrix[inputs]+'</div>');
             inputs++;
           }
         }
@@ -52,22 +65,45 @@ define(function (require) {
       var pos = id.substr(1,2);
       if ($('#'+id).val() != '') {
         if (value == gameA.matrix[pos-1]) {
-          console.log('bien');
+          console.log('bien'); //sonido para indicar cifra correcta
           var blank = false;
           $('.input_row').each(function(index){
             if (this.value == '')
               blank = true;
           });
           if (blank != true){
-            window.alert('Has terminado!');
-            //
+            window.alert('¡Sigue así!');
+            hitsA++;
+            if ((levelA == 1 && hitsA == 5) || (levelA == 2 && hitsA == 4) || (levelA == 3 && hitsA == 3)) { //Editar cantidad de ejercicios por nivel
+              levelA++;
+              if (levelA <= 3) {
+                window.alert('¡Felicidades, Has alcanzado el ' + levelA + ' nivel de dificultad!');
+                //sonido para indicar cambio de dificultad
+                hitsA = 0;
+                matrixA = matrixAcelerando(levelA);
+              }else{ 
+                //Felicitaciones y desbloqueo de segundo juego
+                window.alert('¡Desbloqueaste el segundo nivel del Juego! (aqui va lo de la patineta XD )');
+                $('#menu').toggle();
+                $('#acelerando').toggle();
+              }
+            }
+            $('#contA-game').html(hitsA);
             $('#container_matrix').empty();
-            init();
-            //
+            game();
           }
         }else{
           $('#'+id).val('');
           console.log('error');
+          console.log(healthA)
+          if (healthA >= 1) { //sonido de error
+            $('#h'+healthA+'-A').toggle();
+            healthA--;
+          }else{
+            window.alert('¡Has perdido, intentalo de nuevo!')
+            $('#menu').toggle();
+            $('#acelerando').toggle();
+          }
         }
       }
     }
@@ -84,6 +120,8 @@ define(function (require) {
         $('#acelerando-button').on('click', function(){
           $('#menu').toggle();
           $('#acelerando').toggle();
+          //
+          initA();
         });
 
         $('#atiempo-button').on('click', function(){
@@ -96,11 +134,15 @@ define(function (require) {
           $('#opening').toggle();
         });
 
+        $('#backA-menu').on('click', function(){
+          $('#menu').toggle();
+          $('#acelerando').toggle();
+        });
 
-        //acelerando
-        matrixA = matrixAcelerando(3);
-        init();
-
+        $('#backAT-menu').on('click', function(){
+          $('#menu').toggle();
+          $('#atiempo').toggle();
+        });
 
         //a tiempo
         interact('.dropzone').dropzone({

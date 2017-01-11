@@ -25,23 +25,35 @@
       </div>
 
       <div id='menu' class="hidden">
-        <button id='help' class="game-button">Ayuda</button>
+        <button id='help-menu' class="game-button">Ayuda</button>
         <div><button id='acelerando-button'>Acelerando</button><button id='atiempo-button'>A tiempo</button></div>
         <button id='back-opening' class="game-button">Regresar a inicio</button>
       </div>
 
-      <div id='acelerando' class="hidden">
+      <div id="acelerando" class="hidden">
+        <div id="container-statusA">
+          <div id="container-statusA-health" class="container-column">
+          </div>
+          <div class="container-column">
+            <button id='helpA-game' class="game-button">Ayuda</button>
+            <button id='contA-game' class="game-button">0</button>
+          </div>
+        </div>
         <div id="container_matrix"></div>
+        <button id='backA-menu' class="game-button">Regresar a Menú</button>
       </div>
 
       <div id='atiempo' class="hidden">
-        <div id="no-drop" class="draggable drag-drop"> #no-drop </div>
-        <div id="yes-drop" class="draggable drag-drop"> #yes-drop </div>
+        <div id="container_matrix">
+          <div id="no-drop" class="draggable drag-drop"> #no-drop </div>
+          <div id="yes-drop" class="draggable drag-drop"> #yes-drop </div>
 
-        <div id="outer-dropzone" class="dropzone">
-          #outer-dropzone
-          <div id="inner-dropzone" class="dropzone">#inner-dropzone</div>
-        </div>        
+          <div id="outer-dropzone" class="dropzone">
+            #outer-dropzone
+            <div id="inner-dropzone" class="dropzone">#inner-dropzone</div>
+          </div> 
+        </div>
+        <button id='backAT-menu' class="game-button">Regresar a Menú</button>      
       </div>
 
     </div>
