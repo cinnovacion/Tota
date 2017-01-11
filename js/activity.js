@@ -6,6 +6,7 @@ define(function (require) {
     var jquery = require("jquery");
     var interact = require("interact");
     var acelerando = require("../js/acelerando.js");
+    var atiempo = require("../js/atiempo.js");
 
     var healthA = null;
     var hitsA = null;
@@ -18,14 +19,22 @@ define(function (require) {
     });
 
     $(document).on('keyup', '.input_row', function(e){
-      if(e.keyCode == 13){
-          $('#activity-button').focus();
-            //validateMatrix(this.id, this.value);
-        }
+      if(e.keyCode == 13)
+        $('#activity-button').focus();
     });
 
+    function dragMoveListener (event) {
+      var target = event.target, x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx, y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+      target.style.webkitTransform = target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+
+      target.setAttribute('data-x', x);
+      target.setAttribute('data-y', y);
+    }
+
+    //Game functions
+
     function initA(){
-      healthA = 3;
+      healthA = 9; //cantidad de vidas para el nivel
       $('#container-statusA-health').empty();
       for (var i = 1; i <= healthA; i++) {
          $('#container-statusA-health').append('<button id="h'+i+'-A" class="game-button">'+i+'</button>');
@@ -34,10 +43,10 @@ define(function (require) {
       $('#contA-game').html(hitsA);
       levelA = 1;
       matrixA = matrixAcelerando(levelA);
-      game();
+      gameAC();
     }
 
-    function game(){
+    function gameAC(){
       //console.log(matrixA);
       var pos = Math.floor(Math.random()*matrixA.length);
       gameA = matrixA[pos];
@@ -90,7 +99,7 @@ define(function (require) {
             }
             $('#contA-game').html(hitsA);
             $('#container_matrix').empty();
-            game();
+            gameAC();
           }
         }else{
           $('#'+id).val('');
@@ -108,123 +117,79 @@ define(function (require) {
       }
     }
 
-
     require(['domReady!'], function (doc) {
-        activity.setup();
+      activity.setup();
 
-        $('#play').on('click', function(){
-          $('#opening').toggle();
-          $('#menu').toggle();
-        });
+      //Button functions
 
-        $('#acelerando-button').on('click', function(){
-          $('#menu').toggle();
-          $('#acelerando').toggle();
-          //
-          initA();
-        });
+      $('#play').on('click', function(){
+        $('#opening').toggle();
+        $('#menu').toggle();
+      });
+      $('#acelerando-button').on('click', function(){
+        $('#menu').toggle();
+        $('#acelerando').toggle();
+        //
+        initA();
+      });
+      $('#atiempo-button').on('click', function(){
+        $('#menu').toggle();
+        $('#atiempo').toggle();
+      });
+      $('#back-opening').on('click', function(){
+        $('#menu').toggle();
+        $('#opening').toggle();
+      });
+      $('#backA-menu').on('click', function(){
+        $('#menu').toggle();
+        $('#acelerando').toggle();
+      });
+      $('#backAT-menu').on('click', function(){
+        $('#menu').toggle();
+        $('#atiempo').toggle();
+      });
 
-        $('#atiempo-button').on('click', function(){
-          $('#menu').toggle();
-          $('#atiempo').toggle();
-        });
+      interact('.dropzone').dropzone({
+        accept: '#drop',
+        overlap: 0.9,
 
-        $('#back-opening').on('click', function(){
-          $('#menu').toggle();
-          $('#opening').toggle();
-        });
+        ondropactivate: function (event) {
+          event.target.classList.add('drop-active'); //dropzone
+        },
+        ondragenter: function (event) {
+          var draggableElement = event.relatedTarget, dropzoneElement = event.target; //element in the dropzone
+          dropzoneElement.classList.add('drop-target');
+          draggableElement.classList.add('can-drop');
+          draggableElement.textContent = 'Dragged in';
+        },
+        ondragleave: function (event) {
+          // remove the drop feedback style
+          event.target.classList.remove('drop-target');
+          event.relatedTarget.classList.remove('can-drop');
+          event.relatedTarget.textContent = 'Dragged out';
+        },
+        ondrop: function (event) {
+          event.relatedTarget.textContent = 'Dropped';
+        },
+        ondropdeactivate: function (event) {
+          // remove active dropzone feedback
+          event.target.classList.remove('drop-active');
+          event.target.classList.remove('drop-target');
+        }
+      });
 
-        $('#backA-menu').on('click', function(){
-          $('#menu').toggle();
-          $('#acelerando').toggle();
-        });
+      interact('.draggable').draggable({
+        inertia: false,
+        restrict: { restriction: "parent", endOnly: true, elementRect: { top: 0, left: 0, bottom: 1, right: 1 } },
+        autoScroll: true,
+        onmove: dragMoveListener,
+        onend: function (event) { // call this function on every dragend event
+          var textEl = event.target.querySelector('p');
+          textEl && (textEl.textContent = 'moved a distance of ' + (Math.sqrt(event.dx * event.dx + event.dy * event.dy)|0) + 'px');
+        }
+      });
 
-        $('#backAT-menu').on('click', function(){
-          $('#menu').toggle();
-          $('#atiempo').toggle();
-        });
-
-        //a tiempo
-        interact('.dropzone').dropzone({
-          // only accept elements matching this CSS selector
-          accept: '#yes-drop',
-          // Require a 75% element overlap for a drop to be possible
-          overlap: 0.75,
-
-          // listen for drop related events:
-
-          ondropactivate: function (event) {
-            // add active dropzone feedback
-            event.target.classList.add('drop-active');
-          },
-          ondragenter: function (event) {
-            var draggableElement = event.relatedTarget,
-                dropzoneElement = event.target;
-
-            // feedback the possibility of a drop
-            dropzoneElement.classList.add('drop-target');
-            draggableElement.classList.add('can-drop');
-            draggableElement.textContent = 'Dragged in';
-          },
-          ondragleave: function (event) {
-            // remove the drop feedback style
-            event.target.classList.remove('drop-target');
-            event.relatedTarget.classList.remove('can-drop');
-            event.relatedTarget.textContent = 'Dragged out';
-          },
-          ondrop: function (event) {
-            event.relatedTarget.textContent = 'Dropped';
-          },
-          ondropdeactivate: function (event) {
-            // remove active dropzone feedback
-            event.target.classList.remove('drop-active');
-            event.target.classList.remove('drop-target');
-          }
-        });
-        interact('.draggable')
-          .draggable({
-            // enable inertial throwing
-            inertia: true,
-            // keep the element within the area of it's parent
-            restrict: {
-              restriction: "parent",
-              endOnly: true,
-              elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
-            },
-            // enable autoScroll
-            autoScroll: true,
-
-            // call this function on every dragmove event
-            onmove: dragMoveListener,
-            // call this function on every dragend event
-            onend: function (event) {
-              var textEl = event.target.querySelector('p');
-
-              textEl && (textEl.textContent =
-                'moved a distance of '
-                + (Math.sqrt(event.dx * event.dx +
-                             event.dy * event.dy)|0) + 'px');
-            }
-          });
-
-          function dragMoveListener (event) {
-            var target = event.target,
-                // keep the dragged position in the data-x/data-y attributes
-                x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-                y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-
-            // translate the element
-            target.style.webkitTransform =
-            target.style.transform =
-              'translate(' + x + 'px, ' + y + 'px)';
-
-            // update the posiion attributes
-            target.setAttribute('data-x', x);
-            target.setAttribute('data-y', y);
-          }
-        window.dragMoveListener = dragMoveListener;
-
-
+      window.dragMoveListener = dragMoveListener;
     });
 
 });
