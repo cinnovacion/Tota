@@ -149,8 +149,8 @@ define(function (require) {
         $('#atiempo').toggle();
       });
 
-      interact('.dropzone').dropzone({
-        accept: '#drop',
+      interact('.numeric-dropzone').dropzone({
+        accept: '.draggable',
         overlap: 0.9,
 
         ondropactivate: function (event) {
@@ -160,16 +160,16 @@ define(function (require) {
           var draggableElement = event.relatedTarget, dropzoneElement = event.target; //element in the dropzone
           dropzoneElement.classList.add('drop-target');
           draggableElement.classList.add('can-drop');
-          draggableElement.textContent = 'Dragged in';
+          //draggableElement.textContent = 'Dragged in';
         },
         ondragleave: function (event) {
           // remove the drop feedback style
           event.target.classList.remove('drop-target');
           event.relatedTarget.classList.remove('can-drop');
-          event.relatedTarget.textContent = 'Dragged out';
+          //event.relatedTarget.textContent = 'Dragged out';
         },
         ondrop: function (event) {
-          event.relatedTarget.textContent = 'Dropped';
+          //event.relatedTarget.textContent = 'Dropped';
         },
         ondropdeactivate: function (event) {
           // remove active dropzone feedback
@@ -180,7 +180,7 @@ define(function (require) {
 
       interact('.draggable').draggable({
         inertia: false,
-        restrict: { restriction: "parent", endOnly: true, elementRect: { top: 0, left: 0, bottom: 1, right: 1 } },
+        restrict: { restriction: "#container_matrix", endOnly: true, elementRect: { top: 0, left: 0, bottom: 1, right: 1 } },
         autoScroll: true,
         onmove: dragMoveListener,
         onend: function (event) { // call this function on every dragend event

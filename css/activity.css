@@ -74,41 +74,108 @@ input::-webkit-inner-spin-button {
 }
 
 /*************************************/
-.dropzone {
-  height: 140px;
-  background-color: #ccc;
-  border: dashed 4px transparent;
-  border-radius: 4px;
-  margin: 10px auto 30px;
-  padding: 10px;
-  width: 80%;
+.container-matrix-column {
+  width: 100%;
+  height: 33%;
+}
+#container-dropzone-exercise {
+  width: 90%;
+  height: 80%;
+  margin: auto;
+  background-color: grey;
+  border-radius: 5px;
+}
+#container-draggable-exercise {
+  width: 90%;
+  height: 50%;
+  margin: auto;
+  background-color: grey;
+  border-radius: 5px;
+}
+.numeric-dropzone {
+  width: 100px;
+  height: 100px;
+  background-color: #8B4513;
+  border-radius: 50px;
+  border: dashed 7px transparent;
+  /*border-color: #FFD700;*/
+  float: left;
   transition: background-color 0.3s;
+}
+.numeric-dropzoneR {
+  width: 100px;
+  height: 75px;
+  background-color: #696969;
+  border-radius: 50px;
+  border: dashed 7px transparent;
+  border-color: black;
+  float: left;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  padding-top: 25px;
+}
+.container-mathematics {
+  width: 114px;
+  height: 114px;
+  background-color: #696969;
+  border-radius: 10px;
+  float: left;
+}
+.mathematic-button {
+  width: 50px;
+  height: 50px;
+  margin: 3.5px;
+  border: 0px;
+  padding: 0px;
+  background-color: #008080;
+  border-radius: 10px;
+  float: left;
+  font-size: 35px;
+  font-weight: bold;
+}
+.mathematic-resp {
+  width: 70px;
+  height: 70px;
+  margin: 22px;
+  border: 0px;
+  padding: 0px;
+  background-color: #008080;
+  border-radius: 10px;
+  font-size: 35px;
+  font-weight: bold;
+  float: left;
 }
 .drag-drop {
   display: inline-block;
+  width: 80px;
+  height: 60px;
+  padding-top: 20px;
+  border-radius: 40px;
   min-width: 40px;
-  padding: 2em 0.5em;
-  color: #fff;
-  background-color: #29e;
-  border: solid 2px #fff;
+  color: black;
+  background-color: white;
+  border: solid 3px black;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
   -webkit-transform: translate(0px, 0px);
           transform: translate(0px, 0px);
   transition: background-color 0.3s;
 }
-
 .drop-active {
-  border-color: #aaa;
+  border-color: #FFD700;
 }
-
-.drop-target {
-  background-color: #29e;
-  border-color: #fff;
+.drop-target { 
+  background-color: black;
+  border-color: white;
   border-style: solid;
 }
-
 .drag-drop.can-drop {
-  color: #000;
-  background-color: #4e4;
+  color: white;
+  background-color: #008080;
+  border-color: white;
 }
 
 /******************************************/
