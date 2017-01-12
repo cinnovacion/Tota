@@ -18,6 +18,9 @@ define(function (require) {
     var matrixAT = null;
     var gameAt = null;
 
+    var dropResp1 = null;
+    var dropResp2 = null;
+
     $(document).on('focusout', '.input_row', function(){
       validateMatrix(this.id, this.value);
     });
@@ -128,14 +131,20 @@ define(function (require) {
     }
 
     function gameAT() {
+      dropResp1 = 0;
+      dropResp2 = 0;
+      //
       var pos = Math.floor(Math.random()*matrixAT.length);
       gameAt = matrixAT[pos];
       matrixAT.splice(pos,1);
       console.log(gameAt);
+      $('.mathematic-button').each(function(index, item){
+        $(item).removeClass('mathematic-off');
+      });
       $('#content-resp').empty();
       $('#content-resp').append('<div style="width:30px;height:100%;float:left;"></div>');
       $.each(gameAt.matrix, function(index, value){
-        $('#content-resp').append('<div id="drag-start'+(index+1)+'" class="drag-start"><div id="drop'+(index+1)+'" class="draggable drag-drop">'+value+'</div></div>');
+        $('#content-resp').append('<div id="drag-start'+(index+1)+'" class="drag-start"><div id="drop'+(index+1)+'" class="draggable drag-drop" data="'+value+'">'+value+'</div></div>');
         $('#content-resp').append('<div style="width:30px;height:100%;float:left;"></div>');
       });
       $('#dropzoneR').html(gameAt.resp);
@@ -175,6 +184,19 @@ define(function (require) {
         $('#atiempo').toggle();
       });
 
+      //mathematics buttons funcions
+
+      $('.mathematic-button').on('click', function(){
+        var id = this.id;
+        $('.mathematic-button').each(function(index, item){
+          if (id != item.id) {
+            $(item).addClass('mathematic-off');
+          }else{
+            $(item).removeClass('mathematic-off');
+          }
+        });
+      });
+
       interact('.numeric-dropzone').dropzone({
         accept: '.draggable',
         overlap: 0.9,
@@ -196,6 +218,11 @@ define(function (require) {
         },
         ondrop: function (event) {
           //event.relatedTarget.textContent = 'Dropped';
+          if (event.target.id == 'dropzone1')
+            dropResp1++;
+          if (event.target.id == 'dropzone1' && dropResp1 > 0) {
+            
+          }
         },
         ondropdeactivate: function (event) {
           // remove active dropzone feedback
