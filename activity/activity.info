@@ -1,7 +1,7 @@
 [Activity]
 name = Tota La Tortuga
 bundle_id = org.sugarlabs.TotaLaTortuga
-icon = activity-helloworld
+icon = tota-logo
 exec = sugar-activity-web
 activity_version = 1
 show_launcher = yes
