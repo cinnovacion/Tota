@@ -56,7 +56,7 @@ define(function (require) {
       var row = 1;
       var inputs = 0;
       for (var i = 1; i <= 5; i++) {
-        $('#container_matrix').append('<div class="row" id="R'+row+'"></div>');
+        $('#container_matrix').append('<div class="row" ><div class="content-row" id="R'+row+'"></div></div>');
         for (var j = 1; j <=row; j++) {
           if (gameA.inputs[inputs] == 0) {
             $('#R'+row).append('<input type="number" class="input_row" id="C'+(inputs+1)+'" >');
