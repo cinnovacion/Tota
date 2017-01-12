@@ -14,6 +14,10 @@ define(function (require) {
     var matrixA = null;
     var gameA = null;
 
+    var levelAT = null;
+    var matrixAT = null;
+    var gameAt = null;
+
     $(document).on('focusout', '.input_row', function(){
       validateMatrix(this.id, this.value);
     });
@@ -117,6 +121,26 @@ define(function (require) {
       }
     }
 
+    function initAT() {
+      levelAT = 1;
+      matrixAT = matrixATiempo(levelAT);
+      gameAT();
+    }
+
+    function gameAT() {
+      var pos = Math.floor(Math.random()*matrixAT.length);
+      gameAt = matrixAT[pos];
+      matrixAT.splice(pos,1);
+      console.log(gameAt);
+      $('#content-resp').empty();
+      $('#content-resp').append('<div style="width:30px;height:100%;float:left;"></div>');
+      $.each(gameAt.matrix, function(index, value){
+        $('#content-resp').append('<div id="drag-start'+(index+1)+'" class="drag-start"><div id="drop'+(index+1)+'" class="draggable drag-drop">'+value+'</div></div>');
+        $('#content-resp').append('<div style="width:30px;height:100%;float:left;"></div>');
+      });
+      $('#dropzoneR').html(gameAt.resp);
+    }
+
     require(['domReady!'], function (doc) {
       activity.setup();
 
@@ -135,6 +159,8 @@ define(function (require) {
       $('#atiempo-button').on('click', function(){
         $('#menu').toggle();
         $('#atiempo').toggle();
+        //
+        initAT();
       });
       $('#back-opening').on('click', function(){
         $('#menu').toggle();
