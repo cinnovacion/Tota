@@ -134,6 +134,9 @@ define(function (require) {
     }
 
     function gameAT() {
+      dropResp1 = null;
+      dropResp2 = null;
+      operation = null;
       var pos = Math.floor(Math.random()*matrixAT.length);
       gameAt = matrixAT[pos];
       matrixAT.splice(pos,1);
