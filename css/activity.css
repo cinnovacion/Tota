@@ -178,10 +178,6 @@ input::-webkit-inner-spin-button {
   background-color: white;
   color: #008080;
 }
-.mathematic-off {
-  background-color: #a2a2a2;
-  border-color: #a2a2a2;
-}
 .mathematic-resp {
   width: 70px;
   height: 70px;
@@ -194,9 +190,13 @@ input::-webkit-inner-spin-button {
   font-weight: bold;
   /*float: left;*/
 }
-.mathematic-resp:hover {
+.mathematic-resp-on:hover {
   background-color: white;
   color: #008080;
+}
+.mathematic-off {
+  background-color: #a2a2a2;
+  border-color: #a2a2a2;
 }
 .drag-drop {
   /*display: inline-block;*/

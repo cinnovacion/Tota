@@ -5,6 +5,8 @@ define(function (require) {
     var datastore = require("sugar-web/datastore");
     var jquery = require("jquery");
     var interact = require("interact");
+    var math = require("math");
+    //matrices
     var acelerando = require("../js/acelerando.js");
     var atiempo = require("../js/atiempo.js");
 
@@ -20,6 +22,7 @@ define(function (require) {
 
     var dropResp1 = null;
     var dropResp2 = null;
+    var operation = null;
 
     $(document).on('focusout', '.input_row', function(){
       validateMatrix(this.id, this.value);
@@ -131,16 +134,17 @@ define(function (require) {
     }
 
     function gameAT() {
-      dropResp1 = 0;
-      dropResp2 = 0;
-      //
       var pos = Math.floor(Math.random()*matrixAT.length);
       gameAt = matrixAT[pos];
       matrixAT.splice(pos,1);
-      console.log(gameAt);
+      //console.log(gameAt);
       $('.mathematic-button').each(function(index, item){
         $(item).removeClass('mathematic-off');
       });
+      $('#mathematic-r').attr('disabled', true);
+      $('#mathematic-r').addClass('mathematic-off');
+      $('#mathematic-r').removeClass('mathematic-resp-on');
+
       $('#content-resp').empty();
       $('#content-resp').append('<div style="width:30px;height:100%;float:left;"></div>');
       $.each(gameAt.matrix, function(index, value){
@@ -148,6 +152,39 @@ define(function (require) {
         $('#content-resp').append('<div style="width:30px;height:100%;float:left;"></div>');
       });
       $('#dropzoneR').html(gameAt.resp);
+    }
+
+    function validateDrag(){
+      var cont = 0;
+      $('#container-operations').children().each(function(index, item){
+        var bool = false;
+        $(item.classList).each(function(index2, item2){
+          if (item2 == 'mathematic-off') { bool = true;}
+        });
+        if (bool == true) {
+          cont++;
+        }
+      });
+
+      if (dropResp1 != null && dropResp2 != null && cont > 0) {
+        $('#mathematic-r').removeAttr('disabled');
+        $('#mathematic-r').removeClass('mathematic-off');
+        $('#mathematic-r').addClass('mathematic-resp-on');
+      }else{
+        $('#mathematic-r').attr('disabled', true);
+        $('#mathematic-r').addClass('mathematic-off');
+        $('#mathematic-r').removeClass('mathematic-resp-on');
+      }
+    }
+
+    function updateMatrix(){
+      $.each(gameAt.matrix, function(index, value){
+        if ( ('drop'+(index+1)) != dropResp1 && ('drop'+(index+1)) != dropResp2 ) {
+          var id = $('#drop'+(index+1)).parent()[0].id;
+          $('#'+id).empty();
+          $('#'+id).append('<div id="drop'+(index+1)+'" class="draggable drag-drop" data="'+value+'">'+value+'</div>');
+        }
+      });
     }
 
     require(['domReady!'], function (doc) {
@@ -188,6 +225,22 @@ define(function (require) {
 
       $('.mathematic-button').on('click', function(){
         var id = this.id;
+        //
+        switch(id) {
+          case 'mathematic-sum':
+            operation = '+';
+            break;
+          case 'mathematic-subtraction':
+            operation = '-';
+            break;
+          case 'mathematic-multiplication':
+            operation = '*';
+            break;
+          case 'mathematic-divition':
+            operation = '/';
+            break;
+        }
+        //
         $('.mathematic-button').each(function(index, item){
           if (id != item.id) {
             $(item).addClass('mathematic-off');
@@ -195,6 +248,18 @@ define(function (require) {
             $(item).removeClass('mathematic-off');
           }
         });
+        validateDrag();
+        updateMatrix();
+      });
+      $('#mathematic-r').on('click', function(){
+        var resp = $('#'+dropResp1).attr('data')+operation+$('#'+dropResp2).attr('data');
+        if (math.eval(resp) == gameAt.resp) {
+          console.log('bien');
+          gameAT();
+          window.alert('¡Sigue así!');
+        }else{
+          console.log('error');
+        }
       });
 
       interact('.numeric-dropzone').dropzone({
@@ -208,21 +273,42 @@ define(function (require) {
           var draggableElement = event.relatedTarget, dropzoneElement = event.target; //element in the dropzone
           dropzoneElement.classList.add('drop-target');
           draggableElement.classList.add('can-drop');
-          //draggableElement.textContent = 'Dragged in';
         },
         ondragleave: function (event) {
           // remove the drop feedback style
           event.target.classList.remove('drop-target');
           event.relatedTarget.classList.remove('can-drop');
-          //event.relatedTarget.textContent = 'Dragged out';
         },
         ondrop: function (event) {
-          //event.relatedTarget.textContent = 'Dropped';
-          if (event.target.id == 'dropzone1')
-            dropResp1++;
-          if (event.target.id == 'dropzone1' && dropResp1 > 0) {
-            
+          //dropzone para la primera respuesta
+          if (event.target.id == 'dropzone1' && dropResp1 != null && event.relatedTarget.id != dropResp1) {
+            var id = $('#'+dropResp1).parent()[0].id;
+            $('#'+id).empty();
+            var pos = dropResp1.substr(4,1);
+            $('#'+id).append('<div id="'+dropResp1+'" class="draggable drag-drop" data="'+(gameAt.matrix[pos-1])+'">'+(gameAt.matrix[pos-1])+'</div>');
+            dropResp1 = null; 
           }
+          if (event.target.id == 'dropzone1'){
+            dropResp1 = event.relatedTarget.id;
+            if (dropResp2 == event.relatedTarget.id)
+              dropResp2 = null;
+          }
+
+          //dropzone para la segunda respuesta
+          if (event.target.id == 'dropzone2' && dropResp2 != null && event.relatedTarget.id != dropResp2) {
+            var id = $('#'+dropResp2).parent()[0].id;
+            $('#'+id).empty();
+            var pos = dropResp2.substr(4,1);
+            $('#'+id).append('<div id="'+dropResp2+'" class="draggable drag-drop" data="'+(gameAt.matrix[pos-1])+'">'+(gameAt.matrix[pos-1])+'</div>');
+            dropResp2 = null; 
+          }
+          if (event.target.id == 'dropzone2'){
+            dropResp2 = event.relatedTarget.id;
+            if (dropResp1 == event.relatedTarget.id)
+              dropResp21 = null;
+          }
+
+          updateMatrix();
         },
         ondropdeactivate: function (event) {
           // remove active dropzone feedback
@@ -236,9 +322,23 @@ define(function (require) {
         restrict: { restriction: "#container_matrix", endOnly: true, elementRect: { top: 0, left: 0, bottom: 1, right: 1 } },
         autoScroll: true,
         onmove: dragMoveListener,
-        onend: function (event) { // call this function on every dragend event
-          var textEl = event.target.querySelector('p');
-          textEl && (textEl.textContent = 'moved a distance of ' + (Math.sqrt(event.dx * event.dx + event.dy * event.dy)|0) + 'px');
+        onend: function (event) {
+          var bool = false;
+          $(event.target.classList).each(function(index, item){
+            if (item == 'can-drop') {
+              bool = true;
+            }
+          });
+          if(bool == false){
+            if (dropResp1 == event.target.id) {
+              dropResp1 = null;
+            }
+            if (dropResp2 == event.target.id) {
+              dropResp2 = null;
+            }
+          }
+          
+          validateDrag();
         }
       });
 
