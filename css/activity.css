@@ -9,19 +9,43 @@
 	background-color: #77f442;
 	/*text-align: center;*/
 }
-
-#front {
+#modal {
+  z-index: 998;
+  position: absolute;
+  top: 0px;
+  width: 1200px;
+  height: 845px;
+  background-color: black;
+  opacity: 0.7;
+}
+#modal-content {
 	z-index: 999;
 	position: absolute;
-    left: 300px;
-    top: 210px;
-    width: 600px;
-    height: 420px;
-    background-color: black;
-    opacity: 0.75;
+  border: 8px solid #2E9AFE;
+  border-radius: 40px;
+
+  background-color: white;
+  width: 1100px;
+  height: 750px;
+  top: 40px;
+  left: 43px;
+}
+#close-modal {
+  position: absolute;
+  background-image: url(../img/close-modal.png);
+  width: 60px;
+  height: 60px;
+  padding: 0px;
+  border: none;
+  border-radius: 30px;
+  right: 5px;
+  top: 5px;
+}
+#close-modal:hover {
+  background-image: url(../img/close-modal-hover.png);
 }
 
-#container_matrix{
+.container_matrix{
   vertical-align: center;
   width: 80%;
   height: 80%;
@@ -272,11 +296,11 @@ input::-webkit-inner-spin-button {
   background-image: url(../img/atiempo.png);
 }
 
-#helpA-game, #contA-game {
+#helpA-game, #contA-game, #helpAT-game, #contAT-game {
   float: right;
 }
 
-#container-statusA {
+.container-status {
   margin: 0px;
   padding: 0px;
   width: 100%;

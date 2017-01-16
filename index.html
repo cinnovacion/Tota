@@ -7,6 +7,7 @@
     <link rel="stylesheet" media="not screen and (device-width: 1200px) and (device-height: 900px)" href="lib/sugar-web/graphics/css/sugar-96dpi.css">
     <link rel="stylesheet" media="screen and (device-width: 1200px) and (device-height: 900px)" href="lib/sugar-web/graphics/css/sugar-200dpi.css">
     <link rel="stylesheet" href="css/activity.css">
+    <link rel="stylesheet" href="css/sweetalert.css">
     
     <script data-main="js/loader" src="lib/require.js"></script>
   </head>
@@ -31,7 +32,7 @@
       </div>
 
       <div id="acelerando" class="hidden">
-        <div id="container-statusA">
+        <div class="container-status">
           <div id="container-statusA-health" class="container-column">
           </div>
           <div class="container-column">
@@ -39,20 +40,20 @@
             <button id='contA-game' class="game-button">0</button>
           </div>
         </div>
-        <div id="container_matrix"></div>
+        <div class="container_matrix" id="container-level-1"></div>
         <button id='backA-menu' class="game-button">Regresar a Menú</button>
       </div>
 
       <div id='atiempo' class="hidden">
-        <div id="container-statusA">
-          <div id="container-statusA-health" class="container-column">
+        <div class="container-status">
+          <div id="container-statusAT-health" class="container-column">
           </div>
           <div class="container-column">
-            <button id='helpA-game' class="game-button">Ayuda</button>
-            <button id='contA-game' class="game-button">0</button>
+            <button id='helpAT-game' class="game-button">Ayuda</button>
+            <button id='contAT-game' class="game-button">0</button>
           </div>
         </div>
-        <div id="container_matrix">
+        <div class="container_matrix" id="container-level-2">
           <div class="container-matrix-column"></div>
           <div class="container-matrix-column">
             <div id="container-dropzone-exercise">
@@ -104,17 +105,14 @@
               </div>
             </div>
           </div>
-          <!--
-          <div id="drop" class="draggable drag-drop"> #yes-drop </div>
-          <div class="dropzone"></div> 
-          -->
         </div>
         <button id='backAT-menu' class="game-button">Regresar a Menú</button>      
       </div>
-
+      
+      <div id="modal" class="hidden"></div>
+      <div id="modal-content" class="hidden"><button id="close-modal"></button></div>
     </div>
 
-    <!--<div id="front"></div>-->
 
   </body>
 </html>
