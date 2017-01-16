@@ -10,8 +10,20 @@
     <link rel="stylesheet" href="css/sweetalert.css">
     
     <script data-main="js/loader" src="lib/require.js"></script>
+    <script src="lib/sound.js"></script>
+    <script>
+      var soundID = "soundtrack";
+
+      function loadSound () {
+        createjs.Sound.registerSound("sound/soundtrack.wav", soundID);
+      }
+
+      function playSound () {
+        createjs.Sound.play(soundID);
+      }
+    </script>
   </head>
-  <body>
+  <body onload="loadSound();">
 
     <div id="main-toolbar" class="toolbar">
       <button class="toolbutton" id="activity-button" title="Tota La Tortuga"></button>

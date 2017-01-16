@@ -6,7 +6,6 @@ define(function (require) {
     var jquery = require("jquery");
     var interact = require("interact");
     var math = require("math");
-    //var bootstrap = require("bootstrap");
     var sweetalert = require("sweetalert");
     //matrices
     var acelerando = require("../js/acelerando.js");
@@ -277,6 +276,7 @@ define(function (require) {
       $('#play').on('click', function(){
         $('#opening').toggle();
         $('#menu').toggle();
+        playSound();
       });
       $('#acelerando-button').on('click', function(){
         $('#menu').toggle();
