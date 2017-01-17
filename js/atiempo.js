@@ -1,8 +1,8 @@
 //Matríz de conetenido
 // 1 => estarán visibles
 // 0 => el estudiante deberá escribirlo
-function matrixATiempo(nivel){
-	if (nivel == 1) {
+function matrixATiempo(level){
+	if (level == 1) {
 		return [
 			{"matrix":[10, 5, 9, 6, 2], "resp":4, "options":["10-6", "9-5"]},
 			{"matrix":[10, 3, 6, 1, 3], "resp":2, "options":["3-1"]},
@@ -60,19 +60,19 @@ function matrixATiempo(nivel){
 			{"matrix":[100, 4, 5, 5, 1], "resp":25},
 		];
 	}
-	if (nivel == 2){
+	if (level == 2){
 		return [
-			/*{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-
+			{"matrix":[9, 2, 3, 4, 6], "resp":19, "first": [10, 13]},
+			{"matrix":[2, 8, 10, 105], "resp":25, "first": [15, 20]},
+			{"matrix":[7, 5, 2, 8, 1], "resp":11, "first": [10, 12, 13]},
+			{"matrix":[10, 2, 4, 2, 4], "resp":10, "first": [6, 8, 14]},
+			{"matrix":[8, 10, 1, 10, 10], "resp":17, "first": [18]},
+			{"matrix":[3, 6, 2, 4, 8], "resp":96, "first": [48]},
+			{"matrix":[4, 9, 10, 6, 7], "resp":630, "first": [90]},
+			{"matrix":[6, 2, 3, 5, 5], "resp":13, "first": [8, 10, 11, 15]},
+			{"matrix":[1, 1, 10, 5, 6], "resp":12, "first": [6, 7, 11]},
+			{"matrix":[4, 5, 2, 8, 1], "resp":17, "first": [9, 12, 13, 16]},
+			/*
 			{"matrix":[], "resp":},
 			{"matrix":[], "resp":},
 			{"matrix":[], "resp":},

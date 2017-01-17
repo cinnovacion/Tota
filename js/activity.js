@@ -173,6 +173,7 @@ define(function (require) {
         $('#content-resp').append('<div id="drag-start'+(index+1)+'" class="drag-start"><div id="drop'+(index+1)+'" class="draggable drag-drop" data="'+value+'">'+value+'</div></div>');
         $('#content-resp').append('<div style="width:30px;height:100%;float:left;"></div>');
       });
+      $('#content-resp').append('<div id="drag-back" class="drag-start"><button id="dropback" ><-</button></div>');
       $('#dropzoneR').html(gameAt.resp);
     }
 
