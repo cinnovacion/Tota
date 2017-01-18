@@ -22,6 +22,7 @@ define(function (require) {
     var levelAT = null;
     var matrixAT = null;
     var gameAt = null;
+    var gameAtBU = null;
     //
     var dropResp1 = null;
     var dropResp2 = null;
@@ -158,6 +159,7 @@ define(function (require) {
       operation = null;
       var pos = Math.floor(Math.random()*matrixAT.length);
       gameAt = matrixAT[pos];
+      gameAtBU = gameAt;
       matrixAT.splice(pos,1);
       //console.log(gameAt);
       $('.mathematic-button').each(function(index, item){
@@ -179,6 +181,7 @@ define(function (require) {
 
     function validateMatrixAT () {
       var resp = $('#'+dropResp1).attr('data')+operation+$('#'+dropResp2).attr('data');
+
       if (math.eval(resp) == gameAt.resp) {
         swal('¡Buen trabajo!', '', 'success');
         hitsAT++; //sonido para indicar operacion correcta
@@ -199,14 +202,18 @@ define(function (require) {
         $('#contAT-game').html(hitsAT);
         gameAT();
       }else{
-        if (healthAT >= 1) { //sonido de error
-          swal('Combinación incorrecta, ¡Inténtalo de nuevo!', '', 'error');
-          $('#h'+healthAT+'-AT').toggle();
-          healthAT--;
+        if (levelAT == 2) {
+
         }else{
-          swal('¡Has perdido!', '', 'error');
-          $('#menu').toggle();
-          $('#atiempo').toggle();
+          if (healthAT >= 1) { //sonido de error
+            swal('Combinación incorrecta, ¡Inténtalo de nuevo!', '', 'error');
+            $('#h'+healthAT+'-AT').toggle();
+            healthAT--;
+          }else{
+            swal('¡Has perdido!', '', 'error');
+            $('#menu').toggle();
+            $('#atiempo').toggle();
+          }
         }
       }
     }
