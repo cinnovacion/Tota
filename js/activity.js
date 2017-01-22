@@ -45,6 +45,14 @@ define(function (require) {
       validateOperation(this.id);
     });
 
+    $(document).on('click', '#drag-back', function(){
+      gameAt.matrix = [];
+      $.each(gameAtBU, function(index, value){
+        gameAt.matrix.push(value);
+      });
+      updateMatrix();
+    });
+
     function dragMoveListener (event) {
       var target = event.target, x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx, y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
       target.style.webkitTransform = target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
@@ -149,7 +157,7 @@ define(function (require) {
       hitsAT = 0;
       $('#contAT-game').html(hitsAT);
       levelAT = 1;
-      matrixAT = matrixATiempo(levelAT);
+      matrixAT = matrixATiempo(levelAT);  
       gameAT();
     }
 
@@ -159,9 +167,8 @@ define(function (require) {
       operation = null;
       var pos = Math.floor(Math.random()*matrixAT.length);
       gameAt = matrixAT[pos];
-      gameAtBU = gameAt;
+      gameAtBU = [];
       matrixAT.splice(pos,1);
-      //console.log(gameAt);
       $('.mathematic-button').each(function(index, item){
         $(item).removeClass('mathematic-off');
       });
@@ -172,11 +179,17 @@ define(function (require) {
       $('#content-resp').empty();
       $('#content-resp').append('<div style="width:30px;height:100%;float:left;"></div>');
       $.each(gameAt.matrix, function(index, value){
+        gameAtBU.push(value);
         $('#content-resp').append('<div id="drag-start'+(index+1)+'" class="drag-start"><div id="drop'+(index+1)+'" class="draggable drag-drop" data="'+value+'">'+value+'</div></div>');
         $('#content-resp').append('<div style="width:30px;height:100%;float:left;"></div>');
       });
-      $('#content-resp').append('<div id="drag-back" class="drag-start"><button id="dropback" ><-</button></div>');
       $('#dropzoneR').html(gameAt.resp);
+
+      if (levelAT == 2) {
+        $('#drag-back').removeClass('hidden');
+      }else{
+        $('#drag-back').addClass('hidden');
+      }
     }
 
     function validateMatrixAT () {
@@ -185,13 +198,13 @@ define(function (require) {
       if (math.eval(resp) == gameAt.resp) {
         swal('¡Buen trabajo!', '', 'success');
         hitsAT++; //sonido para indicar operacion correcta
-        if ((levelAT == 1 && hitsAT == 5) || (levelAT == 2 && hitsAT == 4)) { //Editar cantidad de ejercicios por nivel
+        if ((levelAT == 1 && hitsAT == 4) || (levelAT == 2 && hitsAT == 3)) { //Editar cantidad de ejercicios por nivel
           levelAT++; 
-          if (levelA <= 2) {
+          if (levelAT <= 2) {
             swal('¡Felicidades, Has alcanzado el ' + levelAT + ' nivel de dificultad!', '', 'success');
             //sonido para indicar cambio de dificultad
             hitsAT = 0;
-            //matrixAT = matrixAcelerando(levelAT); No he editado todo para el segundo nivel de dificultad
+            matrixAT = matrixATiempo(levelAT);
           }else{ 
             //Felicitaciones y finalizacion del juego
             swal('¡Ahora Tota llegará temprano!', '(Fin del juego XD )', 'success');
@@ -203,12 +216,51 @@ define(function (require) {
         gameAT();
       }else{
         if (levelAT == 2) {
-
+          var bool = false;
+          $.each(gameAt.first, function(index, value){
+            if (math.eval(resp) == value) bool = true;
+          });
+          if (bool == true) {
+            var bool1 = true;
+            var bool2 = true;
+            $.each(gameAt.matrix, function(index, value){
+              if (value == $('#'+dropResp1).attr('data') && bool1 == true) {
+                gameAt.matrix.splice(index, 1);
+                bool1 = false;
+              };
+            });
+            $.each(gameAt.matrix, function(index, value){
+              if (value == $('#'+dropResp2).attr('data') && bool2 == true) {
+                gameAt.matrix.splice(index, 1);
+                bool2 = false;
+              };
+            });
+            gameAt.matrix.push(math.eval(resp));
+            dropResp1 = null;
+            dropResp2 = null;
+            updateMatrix();
+          }else{
+            if (healthAT >= 1) { //sonido de error
+              swal('Combinación incorrecta, ¡Inténtalo de nuevo!', '', 'error');
+              $('#h'+healthAT+'-AT').toggle();
+              healthAT--;
+              dropResp1 = null;
+              dropResp2 = null;
+              updateMatrix();
+            }else{
+              swal('¡Has perdido!', '', 'error');
+              $('#menu').toggle();
+              $('#atiempo').toggle();
+            }
+          }
         }else{
           if (healthAT >= 1) { //sonido de error
             swal('Combinación incorrecta, ¡Inténtalo de nuevo!', '', 'error');
             $('#h'+healthAT+'-AT').toggle();
             healthAT--;
+            dropResp1 = null;
+            dropResp2 = null;
+            updateMatrix();
           }else{
             swal('¡Has perdido!', '', 'error');
             $('#menu').toggle();
@@ -270,11 +322,14 @@ define(function (require) {
     function updateMatrix (){
       $.each(gameAt.matrix, function(index, value){
         if ( ('drop'+(index+1)) != dropResp1 && ('drop'+(index+1)) != dropResp2 ) {
-          var id = $('#drop'+(index+1)).parent()[0].id;
-          $('#'+id).empty();
-          $('#'+id).append('<div id="drop'+(index+1)+'" class="draggable drag-drop" data="'+value+'">'+value+'</div>');
+          //var id = $('#drop'+(index+1)).parent()[0].id;
+          $('#drag-start'+(index+1)).empty();
+          $('#drag-start'+(index+1)).append('<div id="drop'+(index+1)+'" class="draggable drag-drop" data="'+value+'">'+value+'</div>');
         }
       });
+      if (gameAt.matrix.length != 5) {
+        $('#drag-start5').empty();
+      }
     }
 
     require(['domReady!'], function (doc) {
