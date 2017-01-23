@@ -1,6 +1,4 @@
 //Matríz de conetenido
-// 1 => estarán visibles
-// 0 => el estudiante deberá escribirlo
 function matrixATiempo(level){
 	if (level == 1) {
 		return [
@@ -63,7 +61,7 @@ function matrixATiempo(level){
 	if (level == 2){
 		return [
 			{"matrix":[9, 2, 3, 4, 6], "resp":19, "first": [10, 13]},
-			{"matrix":[2, 8, 10, 105], "resp":25, "first": [15, 20]},
+			{"matrix":[2, 8, 10, 10, 5], "resp":25, "first": [15, 20]},
 			{"matrix":[7, 5, 2, 8, 1], "resp":11, "first": [10, 12, 13]},
 			{"matrix":[10, 2, 4, 2, 4], "resp":10, "first": [6, 8, 14]},
 			{"matrix":[8, 10, 1, 10, 10], "resp":17, "first": [18]},
@@ -72,50 +70,50 @@ function matrixATiempo(level){
 			{"matrix":[6, 2, 3, 5, 5], "resp":13, "first": [8, 10, 11, 15]},
 			{"matrix":[1, 1, 10, 5, 6], "resp":12, "first": [6, 7, 11]},
 			{"matrix":[4, 5, 2, 8, 1], "resp":17, "first": [9, 12, 13, 16]},
-			/*
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},
-			{"matrix":[], "resp":},*/
+			
+			{"matrix":[9, 4, 6, 5, 4], "resp":18, "first": [9, 13, 14]},
+			{"matrix":[3, 5, 8, 2, 4], "resp":19, "first": [15, 16, 24]},
+			{"matrix":[6, 5, 3, 2, 9], "resp":42, "first": [45]},
+			{"matrix":[10, 5, 2, 2, 2], "resp":25, "first": [50]},
+			{"matrix":[2, 4, 10, 2, 1], "resp":15, "first": [5, 11, 14]},
+			{"matrix":[9, 8, 10, 5, 2], "resp":36, "first": [18]},
+			{"matrix":[20, 1, 3, 7, 2], "resp":9, "first": [9, 10, 27]},
+			{"matrix":[3, 5, 8, 4, 1], "resp":27, "first": [32]},
+			{"matrix":[10, 6, 2, 10, 1], "resp":2, "first": [8, 12]},
+			{"matrix":[1, 4, 7, 8, 8], "resp":25, "first": [32]},
+			
+			{"matrix":[1, 7, 10, 4, 2], "resp":20, "first": [10, 20, 40]},
+			{"matrix":[3, 8, 8, 7, 5], "resp":48, "first": [40]},
+			{"matrix":[1, 7, 7, 7, 5], "resp":13, "first": [6, 8, 12, 14]},
+			{"matrix":[3, 9, 7, 10, 5], "resp":9, "first": [12]},
+			{"matrix":[9, 8, 3, 1, 2], "resp":13, "first": [4, 10, 11, 12]},
+			{"matrix":[6, 4, 10, 2, 2], "resp":30, "first": [60]},
+			{"matrix":[10, 9, 7, 5, 3], "resp":18, "first": [8, 13, 15]},
+			{"matrix":[1, 10, 10, 2, 2], "resp":6, "first": [4, 5, 8]},
+			{"matrix":[5, 10, 10, 2, 2], "resp":6, "first": [4, 8, 8]},
+			{"matrix":[8, 10, 3, 7, 9], "resp":53, "first": [56, 63]},
+			
+			{"matrix":[3, 2, 2, 3, 10], "resp":60, "first": [6, 30]},
+			{"matrix":[6, 1, 4, 10, 6], "resp":64, "first": [60]},
+			{"matrix":[10, 3, 4, 6, 2], "resp":0, "first": [2, 4, 6]},
+			{"matrix":[2, 158, 568, 54, 231], "resp":230, "first": [284]},
+			{"matrix":[145, 50, 2, 1, 0], "resp":390, "first": [195]},
+			{"matrix":[600, 100, 52, 3, 6], "resp":1800, "first": [600]},
+			{"matrix":[865, 3, 1, 0, 2], "resp":2596, "first": [2595]},
+			{"matrix":[4, 3, 9, 589, 1], "resp":145, "first": [580]},
+			{"matrix":[45, 5, 4, 10, 2], "resp":900, "first": [20, 90, 180, 225, 450]},
+			{"matrix":[25, 4, 50, 2, 1], "resp":2, "first": [2, 4, 100]},
+			
+			{"matrix":[2568, 568, 4, 3, 2], "resp":500, "first": [2000]},
+			{"matrix":[568, 3, 2, 5, 100], "resp":852, "first": [1704]},
+			{"matrix":[842, 56, 86, 70, 10], "resp":700, "first": [786]},
+			{"matrix":[5482, 4, 4202, 1, 2], "resp":320, "first": [1280]},
+			{"matrix":[1280, 680, 3, 100, 2], "resp":200, "first": [600]},
+			{"matrix":[3, 75, 3, 600, 1], "resp":675, "first": [75, 225, 600, 675]},
+			{"matrix":[336, 4, 56, 3, 224], "resp":1120, "first": [280, 1344]},
+			{"matrix":[25, 800, 100, 8, 9], "resp":1700, "first": [900, 2500]},
+			{"matrix":[2000, 250, 750, 1000, 1], "resp":1000, "first": [1000, 1250, 2000]},
+			{"matrix":[1000, 150, 600, 300, 100], "resp":550, "first": [400, 450, 850]},
 		];
 	}
 
