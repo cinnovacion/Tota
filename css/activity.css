@@ -277,6 +277,21 @@ input::-webkit-inner-spin-button {
   height: 845px;
   background-image: url(../img/start.png);
 }
+#history {
+  width: 120px;
+  height: 120px;
+  padding: 0px;
+  margin-left: 10px;
+  margin-top: 10px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  background-image: url(../img/sun.png);
+}
+#history:hover {
+  zoom: 105%;
+}
+
 #opening div {
   width: 20%;
   height: 20%;
