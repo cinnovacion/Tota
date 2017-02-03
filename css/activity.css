@@ -275,7 +275,7 @@ input::-webkit-inner-spin-button {
 #opening {
   width: 1200px;
   height: 845px;
-  background-image: url(../img/opening.png);
+  background-image: url(../img/start.png);
 }
 #opening div {
   width: 20%;
