@@ -330,6 +330,59 @@ input::-webkit-inner-spin-button {
   margin: auto;
   text-align: center;
 }
+#help-menu {
+  background-image: url(../img/help.png);
+  width: 113px;
+  height: 113px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+#help-menu:hover {
+  background-image: url(../img/help-hover.png);
+}
+#acelerando-button {
+  background-image: url(../img/acelerando-button.png);
+  width: 275px;
+  height: 95px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 575px;
+  left: 265px;
+}
+#acelerando-button:hover {
+  background-image: url(../img/acelerando-button-hover.png);
+}
+#atiempo-button {
+  background-image: url(../img/atiempo-button.png);
+  width: 240px;
+  height: 85px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 580px;
+  left: 690px;
+}
+#atiempo-button:hover {
+  background-image: url(../img/atiempo-button-hover.png);
+}
+
+#back-opening {
+  background-image: url(../img/back.png);
+  width: 240px;
+  height: 75px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 700px;
+  left: 10px;
+}
+#back-opening:hover {
+  background-image: url(../img/back-hover.png);
+}
 
 #acelerando {
   width: 1200px;
