@@ -285,11 +285,27 @@ input::-webkit-inner-spin-button {
   margin-top: 10px;
   background-color: transparent;
   border: none;
+  border-radius: 60px;
   color: black;
   background-image: url(../img/sun.png);
 }
 #history:hover {
   zoom: 105%;
+}
+#play {
+  position: absolute;
+  top: 230px;
+  left: 360px;
+  background-image: url(../img/play.png);
+  width: 480px;
+  height: 290px;
+  background-color: transparent;
+  border: none;
+  color: black;
+}
+#play:hover {
+  zoom: 105%;
+  left: 333px;
 }
 
 #opening div {
