@@ -67,7 +67,7 @@ define(function (require) {
       healthA = 9; //cantidad de vidas para el nivel
       $('#container-statusA-health').empty();
       for (var i = 1; i <= healthA; i++) {
-         $('#container-statusA-health').append('<button id="h'+i+'-A" class="game-button">'+i+'</button>');
+         $('#container-statusA-health').append('<button id="h'+i+'-A" class="game-button health-gameAC">'+i+'</button>');
       }
       hitsA = 0;
       $('#contA-game').html(hitsA);
