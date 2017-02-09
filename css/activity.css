@@ -132,18 +132,24 @@ input::-webkit-inner-spin-button {
   height: 33%;
 }
 #container-dropzone-exercise {
-  width: 90%;
-  height: 80%;
+  width: 70%;
+  height: 30%;
   margin: auto;
-  background-color: grey;
+  background-color: transparent;
   border-radius: 5px;
+  position: absolute;
+  top: 400px;
+  left: 200px;
 }
 #container-draggable-exercise {
   width: 90%;
-  height: 50%;
+  height: 10%;
   margin: auto;
-  background-color: grey;
+  background-color: transparent;
   border-radius: 5px;
+  position: absolute;
+  top: 680px;
+  left: 70px;
 }
 #content-resp {
   width: 610px;
@@ -156,12 +162,13 @@ input::-webkit-inner-spin-button {
   float:left;
 }
 .numeric-dropzone {
-  width: 100px;
-  height: 100px;
-  background-color: #8B4513;
-  border-radius: 50px;
-  border: dashed 7px transparent;
-  /*border-color: #FFD700;*/
+  width: 114px;
+  height: 114px;
+  /*background-color: #8B4513;
+  border-radius: 50px;*/
+  background-color: transparent;
+  background-image: url(../img/dropzone.png);
+  /*border: dashed 7px transparent;*/
   float: left;
   transition: background-color 0.3s;
 }
@@ -224,15 +231,17 @@ input::-webkit-inner-spin-button {
 }
 .drag-drop {
   /*display: inline-block;*/
-  width: 80px;
-  height: 60px;
+  width: 86px;
+  height: 66px;
   padding-top: 20px;
-  border-radius: 40px;
   min-width: 40px;
   float: left;
   color: black;
-  background-color: white;
-  border: solid 3px black;
+  background-color: transparent;
+  background-image: url(../img/draggable.png);
+  /*background-color: white;
+  border-radius: 40px;
+  border: solid 3px black;*/
   text-align: center;
   font-weight: bold;
   font-size: 25px;
@@ -244,14 +253,16 @@ input::-webkit-inner-spin-button {
   border-color: #FFD700;
 }
 .drop-target { 
-  background-color: black;
+  /*background-color: black;*/
+  background-image: url(../img/dropzone-u.png);
   border-color: white;
   border-style: solid;
 }
 .drag-drop.can-drop {
   color: white;
-  background-color: #008080;
-  border-color: white;
+  /*background-color: #008080;
+  border-color: white;*/
+  background-image: url(../img/draggable-u.png);
 }
 #dropback {
   width: 76px;
@@ -401,6 +412,7 @@ input::-webkit-inner-spin-button {
   height:82px;
   border: none;
   background-color: transparent;
+  color: transparent;
   padding-top: 15px;
   font-weight: bold;
   font-size: 35px;
@@ -452,6 +464,59 @@ input::-webkit-inner-spin-button {
   width: 1200px;
   height: 845px;
   background-image: url(../img/atiempo.png);
+}
+.health-gameAT {
+  background-image: url(../img/health-atiempo.png);
+  width: 82px;
+  height:82px;
+  border: none;
+  background-color: transparent;
+  color: transparent;
+  padding-top: 15px;
+  font-weight: bold;
+  font-size: 35px;
+}
+.health-gameAT:hover {
+  background-color: transparent;
+}
+#contAT-game {
+  background-image: url(../img/count.png);
+  width: 82px;
+  height:82px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 0px;
+  left: 1020px;
+  padding-top: 15px;
+  font-weight: bold;
+  font-size: 35px;
+}
+#helpAT-game {
+  background-image: url(../img/help-game.png);
+  width: 82px;
+  height:82px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 0px;
+  left: 1110px;
+}
+#helpAT-game:hover {
+  background-image: url(../img/help-game-hover.png);
+}
+#backAT-menu {
+  background-image: url(../img/back.png);
+  width: 240px;
+  height: 75px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 700px;
+  left: 7px;
+}
+#backAT-menu:hover {
+  background-image: url(../img/back-hover.png);
 }
 
 #helpA-game, #contA-game, #helpAT-game, #contAT-game {

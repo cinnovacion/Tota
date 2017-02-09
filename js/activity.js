@@ -152,7 +152,7 @@ define(function (require) {
       healthAT = 4;
       $('#container-statusAT-health').empty();
       for (var i = 1; i <= healthAT; i++) {
-         $('#container-statusAT-health').append('<button id="h'+i+'-AT" class="game-button">'+i+'</button>');
+         $('#container-statusAT-health').append('<button id="h'+i+'-AT" class="game-button health-gameAT">'+i+'</button>');
       }
       hitsAT = 0;
       $('#contAT-game').html(hitsAT);
