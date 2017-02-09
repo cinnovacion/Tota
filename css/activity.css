@@ -175,13 +175,14 @@ input::-webkit-inner-spin-button {
 .numeric-dropzoneR {
   width: 100px;
   height: 75px;
-  background-color: #696969;
+  /*background-color: #99978D;*/
+  background-color: transparent;
   border-radius: 50px;
   border: dashed 7px transparent;
-  border-color: black;
+  border-color: #5E6768;
   float: left;
   text-align: center;
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: 40px;
   padding-top: 25px;
@@ -189,7 +190,7 @@ input::-webkit-inner-spin-button {
 .container-mathematics {
   width: 114px;
   height: 114px;
-  background-color: #696969;
+  background-color: #B1B1A5;
   border-radius: 10px;
   float: left;
 }
