@@ -342,14 +342,49 @@ define(function (require) {
         playSound();
       });
       $('#acelerando-button').on('click', function(){
+        $('#acelerando-dialog').fadeToggle();
+        if(!($('#atiempo-dialog').css('display') == 'none')){
+          $('#atiempo-dialog').fadeToggle();
+        }
+      });
+      $('#acelerando-level-1').on('click', function(){
         $('#menu').toggle();
         $('#acelerando').toggle();
+        $('#acelerando-dialog').toggle();
+        //
+        initA();
+      });
+      $('#acelerando-level-2').on('click', function(){
+        $('#menu').toggle();
+        $('#acelerando').toggle();
+        $('#acelerando-dialog').toggle();
+        //
+        initA();
+      });
+      $('#acelerando-level-3').on('click', function(){
+        $('#menu').toggle();
+        $('#acelerando').toggle();
+        $('#acelerando-dialog').toggle();
         //
         initA();
       });
       $('#atiempo-button').on('click', function(){
+        $('#atiempo-dialog').fadeToggle();
+        if(!($('#acelerando-dialog').css('display') == 'none')){
+          $('#acelerando-dialog').fadeToggle();
+        }
+      });
+      $('#atiempo-level-1').on('click', function(){
         $('#menu').toggle();
         $('#atiempo').toggle();
+        $('#atiempo-dialog').toggle();
+        //
+        initAT();
+      });
+      $('#atiempo-level-2').on('click', function(){
+        $('#menu').toggle();
+        $('#atiempo').toggle();
+        $('#atiempo-dialog').toggle();
         //
         initAT();
       });

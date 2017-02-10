@@ -334,14 +334,14 @@ input::-webkit-inner-spin-button {
   height: 845px;
   background-image: url(../img/menu.png);
 }
-#menu div {
+/*#menu div {
   width: 20%;
   height: 20%;
   background-color: white;
   opacity: 0.75;
   margin: auto;
   text-align: center;
-}
+}*/
 #help-menu {
   background-image: url(../img/help.png);
   width: 113px;
@@ -380,6 +380,64 @@ input::-webkit-inner-spin-button {
 }
 #atiempo-button:hover {
   background-image: url(../img/atiempo-button-hover.png);
+}
+#acelerando-dialog {
+  background-image: url(../img/div-acelerando.png);
+  width: 910px;
+  height: 515px;
+  position: absolute;
+  top: 50px;
+  left: 140px;
+}
+#atiempo-dialog {
+  background-image: url(../img/div-atiempo.png);
+  width: 910px;
+  height: 515px;
+  position: absolute;
+  top: 50px;
+  left: 140px;
+}
+#acelerando-level-1, #atiempo-level-1{
+  background-image: url(../img/button-level-1.png);
+  width: 120px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0px;
+  position: absolute;
+  top: 375px;
+  left: 200px;
+}
+#acelerando-level-1:hover, #atiempo-level-1:hover{
+  background-image: url(../img/button-level-1-hover.png);
+}
+#acelerando-level-2, #atiempo-level-2 {
+  background-image: url(../img/button-level-2.png);
+  width: 120px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0px;
+  position: absolute;
+  top: 375px;
+  left: 400px;
+}
+#acelerando-level-2:hover, #atiempo-level-2:hover {
+  background-image: url(../img/button-level-2-hover.png);
+}
+#acelerando-level-3 {
+  background-image: url(../img/button-level-3.png);
+  width: 120px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0px;
+  position: absolute;
+  top: 375px;
+  left: 600px;
+}
+#acelerando-level-3:hover {
+  background-image: url(../img/button-level-3-hover.png);
 }
 
 #back-opening {
