@@ -13,14 +13,18 @@
     <script src="lib/sound.js"></script>
     <script>
       var soundID = "soundtrack";
+      var hitID = "hit";
+      var errorID = "error";
 
       function loadSound () {
         createjs.Sound.registerSound("sound/soundtrack.wav", soundID);
+        createjs.Sound.registerSound("sound/hit_m.ogg", hitID);
+        createjs.Sound.registerSound("sound/error_m.ogg", errorID);
       }
 
-      function playSound () {
-        createjs.Sound.play(soundID);
-      }
+      function playSound() {createjs.Sound.play(soundID);}
+      function playHit() {createjs.Sound.play(hitID);}
+      function playError() {createjs.Sound.play(errorID);}
     </script>
   </head>
   <body onload="loadSound();">

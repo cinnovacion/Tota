@@ -104,7 +104,7 @@ define(function (require) {
       var pos = id.substr(1,2);
       if ($('#'+id).val() != '') {
         if (value == gameA.matrix[pos-1]) {
-          console.log('bien'); //sonido para indicar cifra correcta
+          console.log('bien'); 
           var blank = false;
           $('.input_row').each(function(index){
             if (this.value == '')
@@ -112,6 +112,7 @@ define(function (require) {
           });
           if (blank != true){
             swal('¡Buen trabajo!', '', 'success');
+            playHit(); //sonido para indicar cifra correcta
             hitsA++;
             if ((levelA == 1 && hitsA == 5) || (levelA == 2 && hitsA == 4) || (levelA == 3 && hitsA == 3)) { //Editar cantidad de ejercicios por nivel
               levelA++;
@@ -134,7 +135,8 @@ define(function (require) {
         }else{
           $('#'+id).val('');
           console.log('error');
-          if (healthA >= 1) { //sonido de error
+          if (healthA >= 1) { 
+            playError(); //sonido de error
             $('#h'+healthA+'-A').toggle();
             healthA--;
           }else{
