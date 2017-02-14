@@ -199,7 +199,8 @@ define(function (require) {
 
       if (math.eval(resp) == gameAt.resp) {
         swal('¡Buen trabajo!', '', 'success');
-        hitsAT++; //sonido para indicar operacion correcta
+        playHit(); //sonido para indicar operacion correcta
+        hitsAT++; 
         if ((levelAT == 1 && hitsAT == 4) || (levelAT == 2 && hitsAT == 3)) { //Editar cantidad de ejercicios por nivel
           levelAT++; 
           if (levelAT <= 2) {
@@ -242,7 +243,8 @@ define(function (require) {
             dropResp2 = null;
             updateMatrix();
           }else{
-            if (healthAT >= 1) { //sonido de error
+            if (healthAT >= 1) { 
+              playError(); //sonido de error
               swal('Combinación incorrecta, ¡Inténtalo de nuevo!', '', 'error');
               $('#h'+healthAT+'-AT').toggle();
               healthAT--;
@@ -256,7 +258,8 @@ define(function (require) {
             }
           }
         }else{
-          if (healthAT >= 1) { //sonido de error
+          if (healthAT >= 1) { 
+            playError(); //sonido de error
             swal('Combinación incorrecta, ¡Inténtalo de nuevo!', '', 'error');
             $('#h'+healthAT+'-AT').toggle();
             healthAT--;

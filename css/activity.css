@@ -232,8 +232,8 @@ input::-webkit-inner-spin-button {
 }
 .drag-drop {
   /*display: inline-block;*/
-  width: 86px;
-  height: 66px;
+  width: 90px;
+  height: 70px;
   padding-top: 20px;
   min-width: 40px;
   float: left;
