@@ -114,7 +114,7 @@ define(function (require) {
             swal('¡Buen trabajo!', '', 'success');
             playHit(); //sonido para indicar cifra correcta
             hitsA++;
-            if ((levelA == 1 && hitsA == 5) || (levelA == 2 && hitsA == 4) || (levelA == 3 && hitsA == 3)) { //Editar cantidad de ejercicios por nivel
+            if ((levelA == 1 && hitsA == 2) || (levelA == 2 && hitsA == 2) || (levelA == 3 && hitsA == 2)) { //Editar cantidad de ejercicios por nivel
               levelA++;
               if (levelA <= 3) {
                 swal('¡Felicidades, Has alcanzado el ' + levelA + ' nivel de dificultad!', '', 'success');

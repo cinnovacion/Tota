@@ -439,6 +439,12 @@ input::-webkit-inner-spin-button {
 #acelerando-level-3:hover {
   background-image: url(../img/button-level-3-hover.png);
 }
+#atiempo-level-1 {
+  left: 300px;
+}
+#atiempo-level-2 {
+  left: 500px;
+}
 
 #back-opening {
   background-image: url(../img/back.png);
