@@ -68,7 +68,7 @@ define(function (require) {
 
     //Game functions level 1
 
-    function initA(){
+    function initA(level){
       healthA = 9; //cantidad de vidas para el nivel
       $('#container-statusA-health').empty();
       for (var i = 1; i <= healthA; i++) {
@@ -76,7 +76,7 @@ define(function (require) {
       }
       hitsA = 0;
       $('#contA-game').html(hitsA);
-      levelA = 1;
+      levelA = level;
       matrixA = matrixAcelerando(levelA);
       gameAC();
     }
@@ -120,8 +120,19 @@ define(function (require) {
             playHit(); //sonido para indicar cifra correcta
             hitsA++;
             if ((levelA == 1 && hitsA == 2) || (levelA == 2 && hitsA == 2) || (levelA == 3 && hitsA == 2)) { //Editar cantidad de ejercicios por nivel
+              if (levelA == 1) { $('#acelerando-level-2').removeClass('level-locked-2'); level2AC = true;}
+              if (levelA == 2) { $('#acelerando-level-3').removeClass('level-locked-3'); level3AC = true;}
+              if (levelA == 3) { $('#atiempo-level-1').removeClass('level-locked-1'); level1AT = true}
+
               levelA++;
               if (levelA <= 3) {
+                $('#menu').toggle();
+                $('#acelerando').toggle();
+                $('#acelerando-dialog').fadeToggle();
+                if(!($('#atiempo-dialog').css('display') == 'none')){
+                  $('#atiempo-dialog').fadeToggle();
+                }
+
                 swal('¡Felicidades, Has alcanzado el ' + levelA + ' nivel de dificultad!', '', 'success');
                 //sonido para indicar cambio de dificultad
                 hitsA = 0;
@@ -131,6 +142,10 @@ define(function (require) {
                 swal('¡Desbloqueaste el segundo nivel del Juego!', '(aqui va lo de la patineta XD )', 'success');
                 $('#menu').toggle();
                 $('#acelerando').toggle();
+                $('#atiempo-dialog').fadeToggle();
+                if(!($('#acelerando-dialog').css('display') == 'none')){
+                  $('#acelerando-dialog').fadeToggle();
+                }
               }
             }
             $('#contA-game').html(hitsA);
@@ -155,7 +170,7 @@ define(function (require) {
 
     //Game functions level 2
 
-    function initAT() {
+    function initAT(level) {
       healthAT = 4;
       $('#container-statusAT-health').empty();
       for (var i = 1; i <= healthAT; i++) {
@@ -163,7 +178,7 @@ define(function (require) {
       }
       hitsAT = 0;
       $('#contAT-game').html(hitsAT);
-      levelAT = 1;
+      levelAT = level;
       matrixAT = matrixATiempo(levelAT);  
       gameAT();
     }
@@ -206,9 +221,18 @@ define(function (require) {
         swal('¡Buen trabajo!', '', 'success');
         playHit(); //sonido para indicar operacion correcta
         hitsAT++; 
-        if ((levelAT == 1 && hitsAT == 4) || (levelAT == 2 && hitsAT == 3)) { //Editar cantidad de ejercicios por nivel
+        if ((levelAT == 1 && hitsAT == 2) || (levelAT == 2 && hitsAT == 2)) { //Editar cantidad de ejercicios por nivel
           levelAT++; 
           if (levelAT <= 2) {
+            $('#atiempo-level-2').removeClass('level-locked-2'); 
+            level2AT = true;
+
+            $('#menu').toggle();
+            $('#atiempo').toggle();
+            $('#atiempo-dialog').fadeToggle();
+            if(!($('#acelerando-dialog').css('display') == 'none')){
+              $('#acelerando-dialog').fadeToggle();
+            }
             swal('¡Felicidades, Has alcanzado el ' + levelAT + ' nivel de dificultad!', '', 'success');
             //sonido para indicar cambio de dificultad
             hitsAT = 0;
@@ -362,7 +386,7 @@ define(function (require) {
         $('#acelerando').toggle();
         $('#acelerando-dialog').toggle();
         //
-        initA();
+        initA(1);
       });
       $('#acelerando-level-2').on('click', function(){
         if (level2AC == true) {
@@ -370,7 +394,7 @@ define(function (require) {
           $('#acelerando').toggle();
           $('#acelerando-dialog').toggle();
           //
-          initA();
+          initA(2);
         }
       });
       $('#acelerando-level-3').on('click', function(){
@@ -379,7 +403,7 @@ define(function (require) {
           $('#acelerando').toggle();
           $('#acelerando-dialog').toggle();
           //
-          initA();
+          initA(3);
         }
       });
       $('#atiempo-button').on('click', function(){
@@ -394,7 +418,7 @@ define(function (require) {
           $('#atiempo').toggle();
           $('#atiempo-dialog').toggle();
           //
-          initAT();
+          initAT(1);
         }
       });
       $('#atiempo-level-2').on('click', function(){
@@ -403,7 +427,7 @@ define(function (require) {
           $('#atiempo').toggle();
           $('#atiempo-dialog').toggle();
           //
-          initAT();
+          initAT(2);
         }
       });
       $('#back-opening').on('click', function(){
