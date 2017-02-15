@@ -398,7 +398,7 @@ input::-webkit-inner-spin-button {
   left: 140px;
 }
 #acelerando-level-1, #atiempo-level-1{
-  background-image: url(../img/button-level-1.png);
+  /*background-image: url(../img/button-level-1.png);*/
   width: 120px;
   height: 40px;
   background-color: transparent;
@@ -409,10 +409,10 @@ input::-webkit-inner-spin-button {
   left: 200px;
 }
 #acelerando-level-1:hover, #atiempo-level-1:hover{
-  background-image: url(../img/button-level-1-hover.png);
+  /*background-image: url(../img/button-level-1-hover.png);*/
 }
 #acelerando-level-2, #atiempo-level-2 {
-  background-image: url(../img/button-level-2.png);
+  /*background-image: url(../img/button-level-2.png);*/
   width: 120px;
   height: 40px;
   background-color: transparent;
@@ -423,10 +423,10 @@ input::-webkit-inner-spin-button {
   left: 400px;
 }
 #acelerando-level-2:hover, #atiempo-level-2:hover {
-  background-image: url(../img/button-level-2-hover.png);
+  /*background-image: url(../img/button-level-2-hover.png);*/
 }
 #acelerando-level-3 {
-  background-image: url(../img/button-level-3.png);
+  /*background-image: url(../img/button-level-3.png);*/
   width: 120px;
   height: 40px;
   background-color: transparent;
@@ -437,7 +437,7 @@ input::-webkit-inner-spin-button {
   left: 600px;
 }
 #acelerando-level-3:hover {
-  background-image: url(../img/button-level-3-hover.png);
+  /*background-image: url(../img/button-level-3-hover.png);*/
 }
 #atiempo-level-1 {
   left: 300px;
@@ -445,6 +445,18 @@ input::-webkit-inner-spin-button {
 #atiempo-level-2 {
   left: 500px;
 }
+.menu-level-1 { background-image: url(../img/button-level-1.png);}
+.menu-level-2 { background-image: url(../img/button-level-2.png);}
+.menu-level-3 { background-image: url(../img/button-level-3.png);}
+.menu-level-1:hover { background-image: url(../img/button-level-1-hover.png);}
+.menu-level-2:hover { background-image: url(../img/button-level-2-hover.png);}
+.menu-level-3:hover { background-image: url(../img/button-level-3-hover.png);}
+.level-locked-1 { background-image: url(../img/button-level-1-locked.png); }
+.level-locked-2 { background-image: url(../img/button-level-2-locked.png); }
+.level-locked-3 { background-image: url(../img/button-level-3-locked.png); }
+.level-locked-1:hover { background-image: url(../img/button-level-1-locked.png); }
+.level-locked-2:hover { background-image: url(../img/button-level-2-locked.png); }
+.level-locked-3:hover { background-image: url(../img/button-level-3-locked.png); }
 
 #back-opening {
   background-image: url(../img/back.png);

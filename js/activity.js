@@ -11,6 +11,11 @@ define(function (require) {
     var acelerando = require("../js/acelerando.js");
     var atiempo = require("../js/atiempo.js");
 
+    var level2AC = false;
+    var level3AC = false;
+    var level1AT = false;
+    var level2AT = false;
+
     var healthA = null;
     var hitsA = null;
     var levelA = null;
@@ -360,18 +365,22 @@ define(function (require) {
         initA();
       });
       $('#acelerando-level-2').on('click', function(){
-        $('#menu').toggle();
-        $('#acelerando').toggle();
-        $('#acelerando-dialog').toggle();
-        //
-        initA();
+        if (level2AC == true) {
+          $('#menu').toggle();
+          $('#acelerando').toggle();
+          $('#acelerando-dialog').toggle();
+          //
+          initA();
+        }
       });
       $('#acelerando-level-3').on('click', function(){
-        $('#menu').toggle();
-        $('#acelerando').toggle();
-        $('#acelerando-dialog').toggle();
-        //
-        initA();
+        if (level3AC == true) {
+          $('#menu').toggle();
+          $('#acelerando').toggle();
+          $('#acelerando-dialog').toggle();
+          //
+          initA();
+        }
       });
       $('#atiempo-button').on('click', function(){
         $('#atiempo-dialog').fadeToggle();
@@ -380,18 +389,22 @@ define(function (require) {
         }
       });
       $('#atiempo-level-1').on('click', function(){
-        $('#menu').toggle();
-        $('#atiempo').toggle();
-        $('#atiempo-dialog').toggle();
-        //
-        initAT();
+        if (level1AT == true) {
+          $('#menu').toggle();
+          $('#atiempo').toggle();
+          $('#atiempo-dialog').toggle();
+          //
+          initAT();
+        }
       });
       $('#atiempo-level-2').on('click', function(){
-        $('#menu').toggle();
-        $('#atiempo').toggle();
-        $('#atiempo-dialog').toggle();
-        //
-        initAT();
+        if (level2AT == true) {
+          $('#menu').toggle();
+          $('#atiempo').toggle();
+          $('#atiempo-dialog').toggle();
+          //
+          initAT();
+        }
       });
       $('#back-opening').on('click', function(){
         $('#menu').toggle();
