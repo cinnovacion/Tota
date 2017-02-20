@@ -119,7 +119,7 @@ define(function (require) {
             swal('¡Buen trabajo!', '', 'success');
             playHit(); //sonido para indicar cifra correcta
             hitsA++;
-            if ((levelA == 1 && hitsA == 2) || (levelA == 2 && hitsA == 2) || (levelA == 3 && hitsA == 2)) { //Editar cantidad de ejercicios por nivel
+            if ((levelA == 1 && hitsA == 1) || (levelA == 2 && hitsA == 1) || (levelA == 3 && hitsA == 1)) { //Editar cantidad de ejercicios por nivel
               if (levelA == 1) { $('#acelerando-level-2').removeClass('level-locked-2'); level2AC = true;}
               if (levelA == 2) { $('#acelerando-level-3').removeClass('level-locked-3'); level3AC = true;}
               if (levelA == 3) { $('#atiempo-level-1').removeClass('level-locked-1'); level1AT = true}
@@ -221,7 +221,7 @@ define(function (require) {
         swal('¡Buen trabajo!', '', 'success');
         playHit(); //sonido para indicar operacion correcta
         hitsAT++; 
-        if ((levelAT == 1 && hitsAT == 2) || (levelAT == 2 && hitsAT == 2)) { //Editar cantidad de ejercicios por nivel
+        if ((levelAT == 1 && hitsAT == 1) || (levelAT == 2 && hitsAT == 1)) { //Editar cantidad de ejercicios por nivel
           levelAT++; 
           if (levelAT <= 2) {
             $('#atiempo-level-2').removeClass('level-locked-2'); 
@@ -457,6 +457,7 @@ define(function (require) {
         $('#modal-content').removeClass('hidden');
       });
       $('#helpA-game').on('click', function(){
+        $('#modal-content').css('background-image', 'url(img/help-acelerando.png)');
         $('#modal').removeClass('hidden');
         $('#modal-content').removeClass('hidden');
       });

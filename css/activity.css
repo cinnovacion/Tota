@@ -356,7 +356,7 @@ input::-webkit-inner-spin-button {
   background-image: url(../img/help-hover.png);
 }
 #acelerando-button {
-  background-image: url(../img/acelerando-button.png);
+  background-image: url(../img/acelerando-button-hover.png);
   width: 275px;
   height: 95px;
   border: none;
@@ -366,10 +366,10 @@ input::-webkit-inner-spin-button {
   left: 265px;
 }
 #acelerando-button:hover {
-  background-image: url(../img/acelerando-button-hover.png);
+  background-image: url(../img/acelerando-button.png);
 }
 #atiempo-button {
-  background-image: url(../img/atiempo-button.png);
+  background-image: url(../img/atiempo-button-hover.png);
   width: 240px;
   height: 85px;
   border: none;
@@ -379,7 +379,7 @@ input::-webkit-inner-spin-button {
   left: 690px;
 }
 #atiempo-button:hover {
-  background-image: url(../img/atiempo-button-hover.png);
+  background-image: url(../img/atiempo-button.png);
 }
 #acelerando-dialog {
   background-image: url(../img/div-acelerando.png);

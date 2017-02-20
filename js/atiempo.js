@@ -4,7 +4,7 @@ function matrixATiempo(level){
 		return [
 			{"matrix":[10, 5, 9, 6, 2], "resp":4, "options":["10-6", "9-5"]},
 			{"matrix":[10, 3, 6, 1, 3], "resp":2, "options":["3-1"]},
-			{"matrix":[9, 9, 1, 8, 5], "resp":1},
+			/*{"matrix":[9, 9, 1, 8, 5], "resp":1},
 			{"matrix":[7, 5, 9, 7, 5], "resp":35},
 			{"matrix":[9, 2, 8, 3, 6], "resp":9},
 			{"matrix":[7, 8, 7, 4, 9], "resp":15},
@@ -55,14 +55,14 @@ function matrixATiempo(level){
 			{"matrix":[27, 8, 3, 6, 2], "resp":9},
 			{"matrix":[9, 9, 1, 8, 5], "resp":1},
 			{"matrix":[25, 4, 5, 2, 1], "resp":5},
-			{"matrix":[100, 4, 5, 5, 1], "resp":25},
+			{"matrix":[100, 4, 5, 5, 1], "resp":25},*/
 		];
 	}
 	if (level == 2){
 		return [
 			{"matrix":[9, 2, 3, 4, 6], "resp":19, "first": [10, 13]},
 			{"matrix":[2, 8, 10, 10, 5], "resp":25, "first": [15, 20]},
-			{"matrix":[7, 5, 2, 8, 1], "resp":11, "first": [10, 12, 13]},
+			/*{"matrix":[7, 5, 2, 8, 1], "resp":11, "first": [10, 12, 13]},
 			{"matrix":[10, 2, 4, 2, 4], "resp":10, "first": [6, 8, 14]},
 			{"matrix":[8, 10, 1, 10, 10], "resp":17, "first": [18]},
 			{"matrix":[3, 6, 2, 4, 8], "resp":96, "first": [48]},
@@ -113,7 +113,7 @@ function matrixATiempo(level){
 			{"matrix":[336, 4, 56, 3, 224], "resp":1120, "first": [280, 1344]},
 			{"matrix":[25, 800, 100, 8, 9], "resp":1700, "first": [900, 2500]},
 			{"matrix":[2000, 250, 750, 1000, 1], "resp":1000, "first": [1000, 1250, 2000]},
-			{"matrix":[1000, 150, 600, 300, 100], "resp":550, "first": [400, 450, 850]},
+			{"matrix":[1000, 150, 600, 300, 100], "resp":550, "first": [400, 450, 850]},*/
 		];
 	}
 
