@@ -462,6 +462,7 @@ define(function (require) {
         $('#modal-content').removeClass('hidden');
       });
       $('#helpAT-game').on('click', function(){
+        $('#modal-content').css('background-image', 'url(img/help-atiempo.png)');
         $('#modal').removeClass('hidden');
         $('#modal-content').removeClass('hidden');
       });
