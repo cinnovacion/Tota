@@ -449,19 +449,28 @@ define(function (require) {
         $('#modal-content').addClass('hidden');
       });
       $('#history').on('click', function(){
+        $('#modal-content').addClass('modal-content-game');
+        $('#modal-content').removeClass('modal-content-menu');
         $('#modal').removeClass('hidden');
         $('#modal-content').removeClass('hidden');
       });
       $('#help-menu').on('click', function(){
+        $('#modal-content').addClass('modal-content-menu');
+        $('#modal-content').removeClass('modal-content-game');
+        $('#modal-content').css('background-image', 'url(img/help-menu.png)');
         $('#modal').removeClass('hidden');
         $('#modal-content').removeClass('hidden');
       });
       $('#helpA-game').on('click', function(){
+        $('#modal-content').addClass('modal-content-game');
+        $('#modal-content').removeClass('modal-content-menu');
         $('#modal-content').css('background-image', 'url(img/help-acelerando.png)');
         $('#modal').removeClass('hidden');
         $('#modal-content').removeClass('hidden');
       });
       $('#helpAT-game').on('click', function(){
+        $('#modal-content').addClass('modal-content-game');
+        $('#modal-content').removeClass('modal-content-menu');
         $('#modal-content').css('background-image', 'url(img/help-atiempo.png)');
         $('#modal').removeClass('hidden');
         $('#modal-content').removeClass('hidden');

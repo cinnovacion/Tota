@@ -25,10 +25,16 @@
   border-radius: 40px;
 
   background-color: white;
-  width: 1100px;
-  height: 750px;
   top: 40px;
   left: 43px;
+}
+.modal-content-menu {
+  width: 1100px;
+  height: 510px;
+}
+.modal-content-game {
+  width: 1100px;
+  height: 750px;
 }
 #close-modal {
   position: absolute;
