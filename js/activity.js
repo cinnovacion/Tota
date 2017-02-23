@@ -451,6 +451,7 @@ define(function (require) {
       $('#history').on('click', function(){
         $('#modal-content').addClass('modal-content-game');
         $('#modal-content').removeClass('modal-content-menu');
+        $('#modal-content').css('background-image', 'url(img/history.png)');
         $('#modal').removeClass('hidden');
         $('#modal-content').removeClass('hidden');
       });
