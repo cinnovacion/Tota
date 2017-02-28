@@ -50,6 +50,21 @@
 #close-modal:hover {
   background-image: url(../img/close-modal-hover.png);
 }
+#play-help {
+  position: absolute;
+  background-image: url(../img/button-play-help.png);
+  background-color: transparent;
+  width: 340px;
+  height: 65px;
+  padding: 0px;
+  border: none;
+  border-radius: 0px;
+  left: 550px;
+  top: 640px;
+}
+#play-help:hover {
+  background-image: url(../img/button-play-help-hover.png);
+}
 
 .container_matrix{
   vertical-align: center;

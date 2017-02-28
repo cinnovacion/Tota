@@ -449,11 +449,20 @@ define(function (require) {
         $('#modal-content').addClass('hidden');
       });
       $('#history').on('click', function(){
+        $('#play-help').removeClass('hidden');
+        //
         $('#modal-content').addClass('modal-content-game');
         $('#modal-content').removeClass('modal-content-menu');
         $('#modal-content').css('background-image', 'url(img/history.png)');
         $('#modal').removeClass('hidden');
         $('#modal-content').removeClass('hidden');
+      });
+      $('#play-help').on('click', function(){
+        $(this).addClass('hidden');
+        $('#modal').addClass('hidden');
+        $('#modal-content').addClass('hidden');
+        $('#opening').toggle();
+        $('#menu').toggle();
       });
       $('#help-menu').on('click', function(){
         $('#modal-content').addClass('modal-content-menu');
