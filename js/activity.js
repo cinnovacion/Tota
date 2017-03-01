@@ -13,8 +13,8 @@ define(function (require) {
 
     var level2AC = false;
     var level3AC = false;
-    var level1AT = false;
-    var level2AT = false;
+    var level1AT = true;
+    var level2AT = true;
 
     var healthA = null;
     var hitsA = null;
