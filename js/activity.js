@@ -6,7 +6,7 @@ define(function (require) {
     var jquery = require("jquery");
     var interact = require("interact");
     var math = require("math");
-    var sweetalert = require("sweetalert");
+    var swal = require("sweetalert2");
     //matrices
     var acelerando = require("../js/acelerando.js");
     var atiempo = require("../js/atiempo.js");
@@ -139,7 +139,21 @@ define(function (require) {
                 matrixA = matrixAcelerando(levelA);
               }else{ 
                 //Felicitaciones y desbloqueo de segundo juego
-                swal('¡Desbloqueaste el segundo nivel del Juego!', '(aqui va lo de la patineta XD )', 'success');
+                swal({
+                  title: '¡Perfecto!',
+                  text: 'Has recibido un obsequio que ayudará a Tota.',
+                  imageUrl: 'img/acelerando-complete.png',
+                  imageWidth: 450,
+                  imageHeight: 300
+                }).then(function () {
+                  swal({
+                    title: 'Tota tiene ahora una patineta!',
+                    text: 'Ahora podrá llegar más rápido a la escuela.',
+                    imageUrl: 'img/acelerando-complete-2.png',
+                    imageWidth: 450,
+                    imageHeight: 300
+                  });
+                });
                 $('#menu').toggle();
                 $('#acelerando').toggle();
                 $('#atiempo-dialog').fadeToggle();
@@ -374,6 +388,13 @@ define(function (require) {
         $('#opening').toggle();
         $('#menu').toggle();
         playSound();
+        for (var i = 0; i < 5; i++) {
+          $('#indicator-menu-acelerando').fadeOut(1000);
+          $('#indicator-menu-acelerando').fadeIn(1000);
+          //
+          $('#indicator-menu-atiempo').fadeOut(1000);
+          $('#indicator-menu-atiempo').fadeIn(1000);
+        }
       });
       $('#acelerando-button').on('click', function(){
         $('#acelerando-dialog').fadeToggle();
@@ -463,6 +484,14 @@ define(function (require) {
         $('#modal-content').addClass('hidden');
         $('#opening').toggle();
         $('#menu').toggle();
+        //
+        for (var i = 0; i < 5; i++) {
+          $('#indicator-menu-acelerando').fadeOut(1000);
+          $('#indicator-menu-acelerando').fadeIn(1000);
+          //
+          $('#indicator-menu-atiempo').fadeOut(1000);
+          $('#indicator-menu-atiempo').fadeIn(1000);
+        }
       });
       $('#help-menu').on('click', function(){
         $('#modal-content').addClass('modal-content-menu');

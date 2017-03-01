@@ -7,7 +7,7 @@
     <link rel="stylesheet" media="not screen and (device-width: 1200px) and (device-height: 900px)" href="lib/sugar-web/graphics/css/sugar-96dpi.css">
     <link rel="stylesheet" media="screen and (device-width: 1200px) and (device-height: 900px)" href="lib/sugar-web/graphics/css/sugar-200dpi.css">
     <link rel="stylesheet" href="css/activity.css">
-    <link rel="stylesheet" href="css/sweetalert.css">
+    <link rel="stylesheet" href="css/sweetalert2.css">
     
     <script data-main="js/loader" src="lib/require.js"></script>
     <script src="lib/sound.js"></script>
@@ -45,6 +45,8 @@
         <button id='help-menu' class="game-button"></button>
         <button id='acelerando-button'></button>
         <button id='atiempo-button'></button>
+        <div id="indicator-menu-acelerando" class="indicator-menu"></div>
+        <div id="indicator-menu-atiempo" class="indicator-menu"></div>
         <div id="acelerando-dialog" class="hidden">
           <button id="acelerando-level-1" class="menu-level-1"></button>
           <button id="acelerando-level-2" class="menu-level-2 level-locked-2"></button>
@@ -120,7 +122,7 @@
       <div id="modal" class="hidden"></div>
       <div id="modal-content" class="hidden">
         <button id="close-modal"></button>
-        <button id="play-help"></button>
+        <button id="play-help" class="hidden"></button>
       </div>
     </div>
 
