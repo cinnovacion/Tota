@@ -51,11 +51,16 @@ define(function (require) {
     });
 
     $(document).on('click', '#drag-back', function(){
-      gameAt.matrix = [];
+      /*gameAt.matrix = [];
       $.each(gameAtBU, function(index, value){
         gameAt.matrix.push(value);
       });
-      updateMatrix();
+      updateMatrix();*/
+      $('#modal-content').addClass('modal-content-menu');
+      $('#modal-content').removeClass('modal-content-game');
+      $('#modal-content').css('background-image', 'url(img/help-atiempo-2.png)');
+      $('#modal').removeClass('hidden');
+      $('#modal-content').removeClass('hidden');
     });
 
     function dragMoveListener (event) {
@@ -468,6 +473,7 @@ define(function (require) {
       $('#close-modal').on('click', function(){
         $('#modal').addClass('hidden');
         $('#modal-content').addClass('hidden');
+        $('#play-help').addClass('hidden');
       });
       $('#history').on('click', function(){
         $('#play-help').removeClass('hidden');
