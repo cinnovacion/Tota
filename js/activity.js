@@ -10,9 +10,9 @@ define(function (require) {
     //matrices
     var acelerando = require("../js/acelerando.js");
     var atiempo = require("../js/atiempo.js");
-
-    var level2AC = false;
-    var level3AC = false;
+    //bloqueo de niveles
+    var level2AC = true;
+    var level3AC = true;
     var level1AT = true;
     var level2AT = true;
 
@@ -258,7 +258,12 @@ define(function (require) {
             matrixAT = matrixATiempo(levelAT);
           }else{ 
             //Felicitaciones y finalizacion del juego
-            swal('¡Ahora Tota llegará temprano!', '(Fin del juego XD )', 'success');
+            $('#modal-content').addClass('modal-content-game');
+            $('#modal-content').removeClass('modal-content-menu');
+            $('#modal-content').css('background-image', 'url(img/complete.png)');
+            $('#modal').removeClass('hidden');
+            $('#modal-content').removeClass('hidden');
+            //swal('¡Ahora Tota llegará temprano!', '(Fin del juego XD )', 'success'); // Sonido de victoria final
             $('#menu').toggle();
             $('#atiempo').toggle();
           }
