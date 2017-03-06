@@ -176,7 +176,7 @@ define(function (require) {
           console.log('error');
           if (healthA >= 1) { 
             playError(); //sonido de error
-            $('#h'+healthA+'-A').toggle();
+            $('#h'+healthA+'-A').fadeToggle();
             healthA--;
           }else{
             swal('¡Has perdido, intentalo de nuevo!', '', 'error');
@@ -314,7 +314,7 @@ define(function (require) {
           if (healthAT >= 1) { 
             playError(); //sonido de error
             swal('Combinación incorrecta, ¡Inténtalo de nuevo!', '', 'error');
-            $('#h'+healthAT+'-AT').toggle();
+            $('#h'+healthAT+'-AT').fadeToggle();
             healthAT--;
             dropResp1 = null;
             dropResp2 = null;
