@@ -6,7 +6,7 @@ define(function (require) {
     var jquery = require("jquery");
     var interact = require("interact");
     var math = require("math");
-    var swal = require("sweetalert2");
+    var swal = require("sweetalert");
     //matrices
     var acelerando = require("../js/acelerando.js");
     var atiempo = require("../js/atiempo.js");
@@ -148,16 +148,19 @@ define(function (require) {
                   title: '¡Perfecto!',
                   text: 'Has recibido un obsequio que ayudará a Tota.',
                   imageUrl: 'img/acelerando-complete.png',
-                  imageWidth: 450,
-                  imageHeight: 300
-                }).then(function () {
-                  swal({
-                    title: 'Tota tiene ahora una patineta!',
-                    text: 'Ahora podrá llegar más rápido a la escuela.',
-                    imageUrl: 'img/acelerando-complete-2.png',
-                    imageWidth: 450,
-                    imageHeight: 300
-                  });
+                  imageSize: '450x300',
+                  confirmButtonText: 'Siguiente',
+                  closeOnConfirm: false,
+                }, function (isConfirm) {
+                  if (isConfirm) {
+                    swal({
+                      title: 'Tota tiene ahora una patineta!',
+                      text: 'Ahora podrá llegar más rápido a la escuela.',
+                      imageUrl: 'img/acelerando-complete-2.png',
+                      imageSize: '450x300',
+                      confirmButtonText: 'Continuar'
+                    });
+                  }
                 });
                 $('#menu').toggle();
                 $('#acelerando').toggle();
