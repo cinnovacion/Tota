@@ -38,8 +38,20 @@ define(function (require) {
     });
 
     $(document).on('keyup', '.input_row', function(e){
-      if(e.keyCode == 13)
+      if(e.keyCode == 13) {
         $('#activity-button').focus();
+      } else {
+          var blank = false;
+          $('.input_row').each(function(index){
+            if (this.value == '')
+              blank = true;
+          });
+          if (blank != true){
+            $('#validate-button-acelerando').removeClass('hidden');
+          } else{
+            $('#validate-button-acelerando').addClass('hidden');
+          }
+      }
     });
 
     $(document).on('click', '#mathematic-r', function(){
@@ -63,6 +75,10 @@ define(function (require) {
       $('#modal-content').removeClass('hidden');
     });
 
+    $(document).on('click', '#validate-button-acelerando', function(){
+
+    });
+
     function dragMoveListener (event) {
       var target = event.target, x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx, y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
       target.style.webkitTransform = target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
@@ -74,7 +90,7 @@ define(function (require) {
     //Game functions level 1
 
     function initA(level){
-      healthA = 5; //cantidad de vidas para el nivel
+      healthA = 9; //cantidad de vidas para el nivel
       $('#container-statusA-health').empty();
       for (var i = 1; i <= healthA; i++) {
          $('#container-statusA-health').append('<button id="h'+i+'-A" class="game-button health-gameAC">'+i+'</button>');
@@ -114,17 +130,18 @@ define(function (require) {
       var pos = id.substr(1,2);
       if ($('#'+id).val() != '') {
         if (value == gameA.matrix[pos-1]) {
-          console.log('bien'); 
+          //console.log('bien'); 
           var blank = false;
           $('.input_row').each(function(index){
             if (this.value == '')
               blank = true;
           });
           if (blank != true){
+            $('#validate-button-acelerando').addClass('hidden');
             swal('¡Buen trabajo!', '', 'success');
             playHit(); //sonido para indicar cifra correcta
             hitsA++;
-            if ((levelA == 1 && hitsA == 1) || (levelA == 2 && hitsA == 1) || (levelA == 3 && hitsA == 1)) { //Editar cantidad de ejercicios por nivel
+            if ((levelA == 1 && hitsA == 15) || (levelA == 2 && hitsA == 10) || (levelA == 3 && hitsA == 5)) { //Editar cantidad de ejercicios por nivel
               if (levelA == 1) { $('#acelerando-level-2').removeClass('level-locked-2'); level2AC = true;}
               if (levelA == 2) { $('#acelerando-level-3').removeClass('level-locked-3'); level3AC = true;}
               if (levelA == 3) { $('#atiempo-level-1').removeClass('level-locked-1'); level1AT = true}
@@ -176,7 +193,7 @@ define(function (require) {
           }
         }else{
           $('#'+id).val('');
-          console.log('error');
+          //console.log('error');
           if (healthA >= 1) { 
             playError(); //sonido de error
             $('#h'+healthA+'-A').fadeToggle();
@@ -193,7 +210,7 @@ define(function (require) {
     //Game functions level 2
 
     function initAT(level) {
-      healthAT = 5;
+      healthAT = 9;
       $('#container-statusAT-health').empty();
       for (var i = 1; i <= healthAT; i++) {
          $('#container-statusAT-health').append('<button id="h'+i+'-AT" class="game-button health-gameAT">'+i+'</button>');
@@ -243,7 +260,7 @@ define(function (require) {
         swal('¡Buen trabajo!', '', 'success');
         playHit(); //sonido para indicar operacion correcta
         hitsAT++; 
-        if ((levelAT == 1 && hitsAT == 1) || (levelAT == 2 && hitsAT == 1)) { //Editar cantidad de ejercicios por nivel
+        if ((levelAT == 1 && hitsAT == 10) || (levelAT == 2 && hitsAT == 5)) { //Editar cantidad de ejercicios por nivel
           levelAT++; 
           if (levelAT <= 2) {
             $('#atiempo-level-2').removeClass('level-locked-2'); 

@@ -567,6 +567,19 @@ input::-webkit-inner-spin-button {
 #backA-menu:hover {
   background-image: url(../img/back-hover.png);
 }
+#validate-button-acelerando {
+  background-image: url(../img/validate.png);
+  width: 145px;
+  height: 115px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 250px;
+  left: 740px;
+}
+#validate-button-acelerando:hover {
+  background-image: url(../img/validate-hover.png);
+}
 
 #atiempo {
   width: 1200px;
