@@ -74,7 +74,7 @@ define(function (require) {
     //Game functions level 1
 
     function initA(level){
-      healthA = 9; //cantidad de vidas para el nivel
+      healthA = 5; //cantidad de vidas para el nivel
       $('#container-statusA-health').empty();
       for (var i = 1; i <= healthA; i++) {
          $('#container-statusA-health').append('<button id="h'+i+'-A" class="game-button health-gameAC">'+i+'</button>');
@@ -193,7 +193,7 @@ define(function (require) {
     //Game functions level 2
 
     function initAT(level) {
-      healthAT = 4;
+      healthAT = 5;
       $('#container-statusAT-health').empty();
       for (var i = 1; i <= healthAT; i++) {
          $('#container-statusAT-health').append('<button id="h'+i+'-AT" class="game-button health-gameAT">'+i+'</button>');
