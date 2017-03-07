@@ -266,7 +266,7 @@ define(function (require) {
             $('#modal-content').css('background-image', 'url(img/complete.png)');
             $('#modal').removeClass('hidden');
             $('#modal-content').removeClass('hidden');
-            //swal('¡Ahora Tota llegará temprano!', '(Fin del juego XD )', 'success'); // Sonido de victoria final
+            // Sonido de victoria final
             $('#menu').toggle();
             $('#atiempo').toggle();
           }
