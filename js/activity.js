@@ -263,7 +263,7 @@ define(function (require) {
             //Felicitaciones y finalizacion del juego
             $('#modal-content').addClass('modal-content-game');
             $('#modal-content').removeClass('modal-content-menu');
-            $('#modal-content').css('background-image', 'url(img/complete.png)');
+            $('#modal-content').css('background-image', 'url(img/finish.png)');
             $('#modal').removeClass('hidden');
             $('#modal-content').removeClass('hidden');
             // Sonido de victoria final
