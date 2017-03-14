@@ -162,8 +162,9 @@ define(function (require) {
               }else{ 
                 //Felicitaciones y desbloqueo de segundo juego
                 swal({
-                  title: '¡Perfecto!',
-                  text: 'Has recibido un obsequio que ayudará a Tota.',
+                  title: '<h1>¡Perfecto!</h1>',
+                  text: '<h2>Has recibido un obsequio que ayudará a Tota.</h2>',
+                  html: true,
                   imageUrl: 'img/acelerando-complete.png',
                   imageSize: '450x300',
                   confirmButtonText: 'Siguiente',
@@ -171,8 +172,9 @@ define(function (require) {
                 }, function (isConfirm) {
                   if (isConfirm) {
                     swal({
-                      title: 'Tota tiene ahora una patineta!',
-                      text: 'Ahora podrá llegar más rápido a la escuela.',
+                      title: '<h1>Tota tiene ahora una patineta!</h1>',
+                      text: '<h2>Ahora podrá llegar más rápido a la escuela.</h2>',
+                      html: true,
                       imageUrl: 'img/acelerando-complete-2.png',
                       imageSize: '450x300',
                       confirmButtonText: 'Continuar'
@@ -412,12 +414,13 @@ define(function (require) {
 
     require(['domReady!'], function (doc) {
       activity.setup();
+      playSound();
 
       //Button functions
       $('#play').on('click', function(){
         $('#opening').toggle();
         $('#menu').toggle();
-        playSound();
+        //playSound();
         for (var i = 0; i < 5; i++) {
           $('#indicator-menu-acelerando').fadeOut(1000);
           $('#indicator-menu-acelerando').fadeIn(1000);
