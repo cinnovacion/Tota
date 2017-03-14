@@ -414,15 +414,12 @@ define(function (require) {
 
     require(['domReady!'], function (doc) {
       activity.setup();
-      setTimeout(function(){
-        playSound();
-      }, 5000);
 
       //Button functions
       $('#play').on('click', function(){
         $('#opening').toggle();
         $('#menu').toggle();
-        //playSound();
+        playSound();
         for (var i = 0; i < 5; i++) {
           $('#indicator-menu-acelerando').fadeOut(1000);
           $('#indicator-menu-acelerando').fadeIn(1000);
