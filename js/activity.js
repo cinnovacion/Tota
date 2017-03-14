@@ -414,7 +414,9 @@ define(function (require) {
 
     require(['domReady!'], function (doc) {
       activity.setup();
-      playSound();
+      setTimeout(function(){
+        playSound();
+      }, 5000);
 
       //Button functions
       $('#play').on('click', function(){
