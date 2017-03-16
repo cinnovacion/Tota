@@ -11,10 +11,10 @@ define(function (require) {
     var acelerando = require("../js/acelerando.js");
     var atiempo = require("../js/atiempo.js");
     //bloqueo de niveles
-    var level2AC = true;
-    var level3AC = true;
-    var level1AT = true;
-    var level2AT = true;
+    var level2AC = false;
+    var level3AC = false;
+    var level1AT = false;
+    var level2AT = false;
 
     var healthA = null;
     var hitsA = null;
@@ -141,7 +141,7 @@ define(function (require) {
             swal('¡Buen trabajo!', '', 'success');
             playHit(); //sonido para indicar cifra correcta
             hitsA++;
-            if ((levelA == 1 && hitsA == 2) || (levelA == 2 && hitsA == 2) || (levelA == 3 && hitsA == 2)) { //Editar cantidad de ejercicios por nivel
+            if ((levelA == 1 && hitsA == 15) || (levelA == 2 && hitsA == 10) || (levelA == 3 && hitsA == 5)) { //Editar cantidad de ejercicios por nivel
               if (levelA == 1) { $('#acelerando-level-2').removeClass('level-locked-2'); level2AC = true;}
               if (levelA == 2) { $('#acelerando-level-3').removeClass('level-locked-3'); level3AC = true;}
               if (levelA == 3) { $('#atiempo-level-1').removeClass('level-locked-1'); level1AT = true}
@@ -262,7 +262,7 @@ define(function (require) {
         swal('¡Buen trabajo!', '', 'success');
         playHit(); //sonido para indicar operacion correcta
         hitsAT++; 
-        if ((levelAT == 1 && hitsAT == 2) || (levelAT == 2 && hitsAT == 2)) { //Editar cantidad de ejercicios por nivel
+        if ((levelAT == 1 && hitsAT == 10) || (levelAT == 2 && hitsAT == 5)) { //Editar cantidad de ejercicios por nivel
           levelAT++; 
           if (levelAT <= 2) {
             $('#atiempo-level-2').removeClass('level-locked-2'); 
