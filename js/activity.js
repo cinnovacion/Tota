@@ -141,7 +141,7 @@ define(function (require) {
             swal('¡Buen trabajo!', '', 'success');
             playHit(); //sonido para indicar cifra correcta
             hitsA++;
-            if ((levelA == 1 && hitsA == 15) || (levelA == 2 && hitsA == 10) || (levelA == 3 && hitsA == 5)) { //Editar cantidad de ejercicios por nivel
+            if ((levelA == 1 && hitsA == 5) || (levelA == 2 && hitsA == 5) || (levelA == 3 && hitsA == 5)) { //Editar cantidad de ejercicios por nivel
               if (levelA == 1) { $('#acelerando-level-2').removeClass('level-locked-2'); level2AC = true;}
               if (levelA == 2) { $('#acelerando-level-3').removeClass('level-locked-3'); level3AC = true;}
               if (levelA == 3) { $('#atiempo-level-1').removeClass('level-locked-1'); level1AT = true}
@@ -262,7 +262,7 @@ define(function (require) {
         swal('¡Buen trabajo!', '', 'success');
         playHit(); //sonido para indicar operacion correcta
         hitsAT++; 
-        if ((levelAT == 1 && hitsAT == 10) || (levelAT == 2 && hitsAT == 5)) { //Editar cantidad de ejercicios por nivel
+        if ((levelAT == 1 && hitsAT == 5) || (levelAT == 2 && hitsAT == 5)) { //Editar cantidad de ejercicios por nivel
           levelAT++; 
           if (levelAT <= 2) {
             $('#atiempo-level-2').removeClass('level-locked-2'); 
@@ -419,7 +419,7 @@ define(function (require) {
       $('#play').on('click', function(){
         $('#opening').toggle();
         $('#menu').toggle();
-        //playSound();
+        playSound();
         for (var i = 0; i < 5; i++) {
           $('#indicator-menu-acelerando').fadeOut(1000);
           $('#indicator-menu-acelerando').fadeIn(1000);
